@@ -1,0 +1,32 @@
+.footer {
+  padding-top: 30px;
+  padding-bottom: 30px;
+background-color: var(--footer-background);
+}
+@media screen and (min-width: 768px) {
+  .footer {
+    display: flex;
+    justify-content: center;
+  }
+}
+.footer p {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-weight: 400;
+font-size: 14px;
+line-height: 16px;
+color: #545454;
+}
+@media screen and (min-width: 768px) {
+  .footer p {
+    font-size: 16px;
+    line-height: 19px;
+  }
+}
+.group-name {
+  color: #545454;
+}
+.heart {
+  fill: var(--accent-text-color);
+}
