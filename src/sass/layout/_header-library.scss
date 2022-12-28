@@ -1,0 +1,73 @@
+.page-library {
+  margin-left: auto;
+  margin-right: auto;
+  background-image: linear-gradient(to right, var(--hero-background), var(--hero-background)), url(../img/header_library/Rectangle1.jpg);
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
+  padding-bottom: 60px;
+}
+@media screen and (min-device-pixel-ratio: 2), screen and (min-resolution: 192dpi), screen and (min-resolution: 2dppx) {
+  .page-library {
+    background-image: linear-gradient(to right, var(--hero-background), var(--hero-background)), url(../img/header_library/Rectangle1@2x.jpg);
+  }
+}
+@media screen and (min-width: 768px) {
+  .page-library {
+    background-image: linear-gradient(to right, var(--hero-background), var(--hero-background)), url(../img/header_library/Rectangle2.jpg);
+  }
+}
+@media screen and (min-width: 768px) and (min-device-pixel-ratio: 2), screen and (min-width: 768px) and (min-resolution: 192dpi), screen and (min-width: 768px) and (min-resolution: 2dppx) {
+  .page-library {
+    background-image: linear-gradient(to right, var(--hero-background), var(--hero-background)), url(../img/header_library/Rectangle2@2x.jpg);
+  }
+}
+@media screen and (min-width: 1280px) {
+  .page-library {
+    background-image: linear-gradient(to right, var(--hero-background), var(--hero-background)), url(../img/header_library/Rectangle3.jpg);
+  }
+}
+@media screen and (min-width: 1280px) and (min-device-pixel-ratio: 2), screen and (min-width: 1200px) and (min-resolution: 192dpi), screen and (min-width: 1200px) and (min-resolution: 2dppx) {
+  .page-library {
+    background-image: linear-gradient(to right, var(--hero-background), var(--hero-background)), url(../img/header_library/Rectangle3@2x.jpg); 
+  }
+}
+
+.page-library_container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 60px;
+}
+@media screen and (min-width: 768px) {
+  .page-library_container {
+  margin-bottom: 40px;
+  }
+}
+.container-button {
+  display: flex;
+  justify-content: center;
+
+}
+.button-container__watched {
+  margin-right: 20px;
+}
+.container-button button {
+ padding: 14px 36px;
+ background-color: transparent;
+ border: 1px solid #FFFFFF;
+border-radius: 5px;
+color: var(--primary-text-color);
+}
+@media screen and (min-width: 768px) {
+  .container-button button {
+    padding: 13px 46px;
+  }
+}
+.container-button button:hover,
+.container-button button:focus,
+.container-button button:placeholder-shown {
+  background-color: var(--accent-text-color);
+  border: var(--accent-text-color);
+  filter: drop-shadow(0px 8px 43px rgba(255, 107, 1, 0.6));
+}
