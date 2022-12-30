@@ -1,35 +1,64 @@
 .page-library {
   margin-left: auto;
   margin-right: auto;
-  background-image: linear-gradient(to right, var(--hero-background), var(--hero-background)), url(../img/header_library/Rectangle1.jpg);
+  background-image: linear-gradient(to right, 
+                    var(--hero-background), 
+                    var(--hero-background)), 
+                    url(../img/header_library/Rectangle1.jpg);
   background-repeat: no-repeat;
   background-position: center;
   background-size: cover;
   padding-bottom: 60px;
 }
-@media screen and (min-device-pixel-ratio: 2), screen and (min-resolution: 192dpi), screen and (min-resolution: 2dppx) {
+
+@media screen and (min-device-pixel-ratio: 2), 
+screen and (min-resolution: 192dpi), 
+screen and (min-resolution: 2dppx) {
   .page-library {
-    background-image: linear-gradient(to right, var(--hero-background), var(--hero-background)), url(../img/header_library/Rectangle1@2x.jpg);
+    background-image: linear-gradient(to right, 
+                      var(--hero-background), 
+                      var(--hero-background)), 
+                      url(../img/header_library/Rectangle1@2x.jpg);
   }
 }
+
 @media screen and (min-width: 768px) {
   .page-library {
-    background-image: linear-gradient(to right, var(--hero-background), var(--hero-background)), url(../img/header_library/Rectangle2.jpg);
+    background-image: linear-gradient(to right, 
+                      var(--hero-background), 
+                      var(--hero-background)), 
+                      url(../img/header_library/Rectangle2.jpg);
   }
 }
-@media screen and (min-width: 768px) and (min-device-pixel-ratio: 2), screen and (min-width: 768px) and (min-resolution: 192dpi), screen and (min-width: 768px) and (min-resolution: 2dppx) {
+
+@media screen and (min-width: 768px) and (min-device-pixel-ratio: 2), 
+screen and (min-width: 768px) and (min-resolution: 192dpi), 
+screen and (min-width: 768px) and (min-resolution: 2dppx) {
   .page-library {
-    background-image: linear-gradient(to right, var(--hero-background), var(--hero-background)), url(../img/header_library/Rectangle2@2x.jpg);
+    background-image: linear-gradient(to right, 
+                      var(--hero-background), 
+                      var(--hero-background)), 
+                      url(../img/header_library/Rectangle2@2x.jpg);
   }
 }
+
 @media screen and (min-width: 1280px) {
   .page-library {
-    background-image: linear-gradient(to right, var(--hero-background), var(--hero-background)), url(../img/header_library/Rectangle3.jpg);
+    background-image: linear-gradient(to right, 
+                      var(--hero-background), 
+                      var(--hero-background)), 
+                      url(../img/header_library/Rectangle3.jpg);
   }
 }
-@media screen and (min-width: 1280px) and (min-device-pixel-ratio: 2), screen and (min-width: 1200px) and (min-resolution: 192dpi), screen and (min-width: 1200px) and (min-resolution: 2dppx) {
+
+@media screen and (min-width: 1280px) and (min-device-pixel-ratio: 2), 
+screen and (min-width: 1200px) and (min-resolution: 192dpi), 
+screen and (min-width: 1200px) and (min-resolution: 2dppx) {
   .page-library {
-    background-image: linear-gradient(to right, var(--hero-background), var(--hero-background)), url(../img/header_library/Rectangle3@2x.jpg); 
+    background-image: linear-gradient(to right, 
+                      var(--hero-background), 
+                      var(--hero-background)), 
+                      url(../img/header_library/Rectangle3@2x.jpg); 
   }
 }
 
@@ -39,31 +68,37 @@
   align-items: center;
   margin-bottom: 60px;
 }
+
 @media screen and (min-width: 768px) {
   .page-library_container {
-  margin-bottom: 40px;
+    margin-bottom: 40px;
   }
 }
+
 .container-button {
   display: flex;
   justify-content: center;
 
 }
+
 .button-container__watched {
   margin-right: 20px;
 }
+
 .container-button button {
- padding: 14px 36px;
- background-color: transparent;
- border: 1px solid #FFFFFF;
-border-radius: 5px;
-color: var(--primary-text-color);
+  padding: 14px 36px;
+  background-color: transparent;
+  border: 1px solid #FFFFFF;
+  border-radius: 5px;
+  color: var(--primary-text-color);
 }
+
 @media screen and (min-width: 768px) {
   .container-button button {
     padding: 13px 46px;
   }
 }
+
 .container-button button:hover,
 .container-button button:focus,
 .container-button button:placeholder-shown {

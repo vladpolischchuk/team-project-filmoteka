@@ -1,7 +1,8 @@
 .footer {
   padding-top: 30px;
   padding-bottom: 30px;
-background-color: var(--footer-background);
+
+  background-color: var(--footer-background);
 }
 @media screen and (min-width: 768px) {
   .footer {
@@ -13,10 +14,12 @@ background-color: var(--footer-background);
   display: flex;
   justify-content: center;
   align-items: center;
+
   font-weight: 400;
-font-size: 14px;
-line-height: 16px;
-color: #545454;
+  font-size: 14px;
+  line-height: 16px;
+  
+  color: #545454;
 }
 @media screen and (min-width: 768px) {
   .footer p {
