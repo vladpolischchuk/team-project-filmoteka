@@ -1,7 +1,8 @@
 .footer {
   padding-top: 30px;
   padding-bottom: 30px;
-background-color: var(--footer-background);
+
+  background-color: var(--footer-background);
 }
 @media screen and (min-width: 768px) {
   .footer {
@@ -9,24 +10,32 @@ background-color: var(--footer-background);
     justify-content: center;
   }
 }
-.footer p {
+.footer-text {
   display: flex;
+
   justify-content: center;
   align-items: center;
+
   font-weight: 400;
-font-size: 14px;
-line-height: 16px;
-color: #545454;
+  font-size: 14px;
+  line-height: 16px;
+  color: var(--footer-text-color);
 }
 @media screen and (min-width: 768px) {
-  .footer p {
+  .footer-text {
     font-size: 16px;
     line-height: 19px;
   }
 }
 .group-name {
-  color: #545454;
+  color: var(--footer-text-color);
+
+  &:focus,
+  &:hover {
+    color: var(--accent-text-color);
+  }
 }
+
 .heart {
   fill: var(--accent-text-color);
 }
