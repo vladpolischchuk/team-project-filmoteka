@@ -63,4 +63,4 @@ async function fetchFilmsSearch(searchQuery,page) {
 //FUNCTION CALL
 //fetchGenresAPI();
 //EXPORT TWO FUNCTIONS
-export { fetchFilmsAPI, fetchGenresAPI };
+export { fetchFilmsAPI, fetchGenresAPI, fetchFilmsSearch};
