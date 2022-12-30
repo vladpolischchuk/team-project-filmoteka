@@ -38,7 +38,28 @@ async function fetchGenresAPI() {
             console.error('There has been a problem with your fetch operation:', error);
         });
 }
+
+// ============= FETCH FOR SEARCH FILMS =================
+async function fetchFilmsSearch(searchQuery,page) {
+    return await
+        fetch(`${URL}/search/movie?api_key=${KEY}&language=en-US&query=${searchQuery}&page=${page}&include_adult=folse`)
+        .then((response) => {
+            if (!response.ok) {
+
+                throw new Error('Network response was not OK');
+            }
+            return response.json();
+        })
+        .then((data) => {
+          return data.results
+        })
+        .catch((error) => {
+            console.error('There has been a problem with your fetch operation:', error);
+        });
+};
+
 //FUNCTION CALL
 //fetchGenresAPI();
-//EXPORT TWO FUNCTIONS
-export { fetchFilmsAPI, fetchGenresAPI };
+//EXPORT THREE FUNCTIONS
+
+export { fetchFilmsAPI, fetchGenresAPI,fetchFilmsSearch };
