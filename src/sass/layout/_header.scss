@@ -1,41 +1,44 @@
 .page-header {
   margin-left: auto;
   margin-right: auto;
-  background-image: linear-gradient(to right, var(--hero-background), var(--hero-background)), url(../img/header_home/abstract-background0.jpg);
+
+  background-image: linear-gradient(to right, var(--hero-background), var(--hero-background)), url(../img/header_home/home-background0.jpg);
   background-repeat: no-repeat;
   background-position: center;
   background-size: cover;
 }
 @media screen and (min-device-pixel-ratio: 2), screen and (min-resolution: 192dpi), screen and (min-resolution: 2dppx) {
   .page-header {
-    background-image: linear-gradient(to right, var(--hero-background), var(--hero-background)), url(../img/header_home/abstract-background0@2x.jpg);
+    background-image: linear-gradient(to right, var(--hero-background), var(--hero-background)), url(../img/header_home/home-background0@2x.jpg);
   }
 }
 @media screen and (min-width: 768px) {
   .page-header {
-    background-image: linear-gradient(to right, var(--hero-background), var(--hero-background)), url(../img/header_home/abstract-background1.jpg);
+    background-image: linear-gradient(to right, var(--hero-background), var(--hero-background)), url(../img/header_home/home-background1.jpg);
   }
 }
 @media screen and (min-width: 768px) and (min-device-pixel-ratio: 2), screen and (min-width: 768px) and (min-resolution: 192dpi), screen and (min-width: 768px) and (min-resolution: 2dppx) {
   .page-header {
-    background-image: linear-gradient(to right, var(--hero-background), var(--hero-background)), url(../img/header_home/abstract-background2@2x.jpg);
+    background-image: linear-gradient(to right, var(--hero-background), var(--hero-background)), url(../img/header_home/home-background2@2x.jpg);
   }
 }
 @media screen and (min-width: 1280px) {
   .page-header {
-    background-image: linear-gradient(to right, var(--hero-background), var(--hero-background)), url(../img/header_home/abstract-background2.jpg);
+    background-image: linear-gradient(to right, var(--hero-background), var(--hero-background)), url(../img/header_home/home-background2.jpg);
   }
 }
 @media screen and (min-width: 1280px) and (min-device-pixel-ratio: 2), screen and (min-width: 1200px) and (min-resolution: 192dpi), screen and (min-width: 1200px) and (min-resolution: 2dppx) {
   .page-header {
-    background-image: linear-gradient(to right, var(--hero-background), var(--hero-background)), url(../img/header_home/abstract-background2@2x.jpg); 
+    background-image: linear-gradient(to right, var(--hero-background), var(--hero-background)), url(../img/header_home/home-background2@2x.jpg); 
   }
 }
-.link.page::after {
+.page::after {
   content: "";
   display: block;
+
   width: 100%;
   height: 2px;
+
   background-color: #FF001B;
   background-repeat: no-repeat;
   background-size: 70px 70px;
@@ -44,25 +47,26 @@
 }
 .page-header_container {
   display: flex;
+
   justify-content: space-between;
   align-items: center;
+
   margin-bottom: 40px;
 }
 .logo-link {
-  color: var(--primary-text-color);
   display: flex;
+
   justify-content: center;
   align-items: center;
-}
-.logo {
- fill: var(--primary-background);
 
+  color: var(--primary-text-color);
 }
 .logo-link::before {
   content: "";
   width: 24px;
   height: 24px;
-  background-image: url(../img/film.svg);
+  
+  background-image: url(../img/logo-film.svg);
   background-size: cover;
   background-repeat: no-repeat;
   background-position: center;
@@ -70,9 +74,10 @@
 }
 .logo-name {
   margin-left: 10px;
+
   font-weight: 500;
-font-size: 30px;
-line-height: 35px;
+  font-size: 30px;
+  line-height: 35px;
 }
 @media screen and (max-width: 769px) {
   .logo-name {
@@ -82,17 +87,18 @@ line-height: 35px;
 .nav-list {
   display: flex;
 }
-.nav-list a {
+.nav-li {
   font-weight: 500;
-font-size: 12px;
-line-height: 14px;
-text-transform: uppercase;
+  font-size: 12px;
+  line-height: 14px;
+
+  text-transform: uppercase;
 }
-.nav-list a:hover,
-.nav-list a:focus {
+.nav-li:hover,
+.nav-li:focus {
   filter: drop-shadow(0px 8px 43px rgba(255, 107, 1, 0.6));
   color: var(--accent-text-color);
 }
-.nav-library__home {
+.nav-home {
 margin-right: 40px;
 }
