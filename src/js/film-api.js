@@ -1,6 +1,8 @@
 const URL = 'https://api.themoviedb.org/3';
 const KEY = 'cf961b1b89f4c4a28558be2b04fdd59a';
 
+//EXPORT  FUNCTIONS
+export { fetchFilmsAPI, fetchGenresAPI, fetchMovieInfoAPI};
 // FETCH FOR MOVIE OF THE DAY
 async function fetchFilmsAPI(page=1) {
     return await
@@ -60,6 +62,5 @@ async function fetchFilmsSearch(searchQuery,page) {
 
 //FUNCTION CALL
 //fetchGenresAPI();
-//EXPORT THREE FUNCTIONS
-
-export { fetchFilmsAPI, fetchGenresAPI,fetchFilmsSearch };
+//EXPORT TWO FUNCTIONS
+export { fetchFilmsAPI, fetchGenresAPI };
