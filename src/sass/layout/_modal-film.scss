@@ -1,0 +1,256 @@
+.backdrop {
+    position: fixed;
+    top: 0;
+    z-index: 15;
+
+    width: 100vw;
+    height: 100vh;
+
+    background-color: hsla(0, 0%, 0%, 0.4);
+    opacity: 1;
+    transition: opacity 250ms cubic-bezier(0.4, 0, 0.2, 1), visibility 250ms cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.is-hidden {
+    opacity: 0;
+    pointer-events: none;
+    visibility: hidden;
+}
+
+.film-modal-info-list{
+    list-style: none;
+}
+
+.film-modal {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    z-index: 999;
+
+    width: 280px;
+    padding: 15px 20px 40px 20px;
+
+    background-color: var(--primary-background);
+    transform: translate(-50%, -50%) scale(1);
+    transition: transform 500ms;
+
+    @media screen and (max-width: 767px) {
+    max-height: calc(100vh - 100px);
+    overflow-y: auto;
+    overflow-x: hidden;
+    }
+
+    @media screen and (min-width: 768px) {
+    display: flex;
+    width: 704px;
+    height: 552px;
+    padding: 40px 72px 40px 36px;
+}
+
+    @media screen and (min-width: 1024px) {
+    width: 814px;
+    height: 558px;
+    padding: 40px 16px;
+}
+}
+
+.film-modal-poster-wrap {
+    position: relative;
+    margin-bottom: 20px;
+
+    @media screen and (min-width: 768px) {
+    margin-right: 68px;
+    margin-bottom: 0px;
+    }
+
+    @media screen and (min-width: 1024px) {
+    margin-right: 16px;
+    }
+}
+
+.film-modal-poster-img {
+    max-width: 240px;
+    height: 357px;
+    border-radius: 5px;
+    z-index: 1001;
+
+    @media screen and (min-width: 768px) {
+    max-width: 265px;
+    height: 375px;
+    }
+
+    @media screen and (min-width: 1024px) {
+    max-width: 333px;
+    height: 478px;
+    }
+}
+.film-modal-item-title{
+    min-width: 50%;
+    font-weight: 500;
+    font-size: 12px;
+    line-height: 1.33;
+    color: #8c8c8c;
+
+    @media screen and (min-width: 768px) {
+    min-width: 40%;
+    }
+
+    @media screen and (min-width: 1024px) {
+    min-width: 30%;
+    } 
+}
+
+.film-modal-close-button {
+    position: absolute;
+    top: 8px;
+    right: 8px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    
+    width: 30px;
+    height: 30px;
+
+    border: none;
+    background-color: transparent;
+    
+    cursor: pointer;
+    outline: none;
+        
+    @media screen and (max-width: 767px) {
+        position: static;
+        transform: translateX(225px) translateY(-10px);
+        }
+    
+        &:hover .film-modal-close-icon,
+        &:focus .film-modal-close-icon {
+        transition: 250ms cubic-bezier(0.4, 0, 0.2, 1);
+        stroke: var(--accent-text-color);
+        }
+    }
+
+    .film-modal-info-wrap {
+    width: 100%;
+}
+
+.film-modal-item {
+    display: flex;
+
+    &:not(:last-child) {
+    margin-bottom: 8px;
+    }
+}
+
+.film-modal-title {
+    margin-bottom: 20px;
+    font-weight: 500;
+    font-size: 30px;
+    line-height: 1.16;
+    text-transform: uppercase;
+}
+
+.film-modal-item-description {
+    font-weight: 500;
+    font-size: 12px;
+    line-height: 1.16;
+    text-transform: capitalize;
+}
+
+.film-modal-item-vote {
+    padding: 1px 10px;
+    border-radius: 5px;
+    background-color: var(--footer-background);
+
+&.color {
+    background-color: var(--accent-text-color);
+    color: var(--primary-background);
+}
+}
+
+.film-modal-item-original-title {
+    text-transform: uppercase;
+    line-height: 1.33;
+}
+
+.film-modal-about{
+    margin-top: 20px;
+    margin-bottom: 8px;
+    font-weight: 500;
+}
+
+.film-modal-description {
+    font-weight: 500;
+    font-size: 12px;
+    line-height: 1.67;
+
+    @media screen and (max-width: 2560px) {
+    //   height: 25%;
+    height: inherit;
+    overflow-y: auto;
+    }
+}
+
+.film-modal-btn-wrap {
+    display: flex;
+    margin-top: 20px;
+
+    @media screen and (min-width: 1024px) {
+    margin-left: 8px;}
+}
+
+.film-modal-btn {
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+    padding: 0px 10px;
+
+    width: 110px;
+    height: 44px;
+    
+    cursor: pointer;
+    font-family: inherit;
+    font-weight: 500;
+    font-size: 12px;
+    line-height: 1.33;
+    text-transform: uppercase;
+
+    background-color: initial;
+    border: 1px solid var(--black-text-color);
+    border-radius: 5px;
+    
+    transition-property: background-color, color, border;
+    transition: 250ms cubic-bezier(0.4, 0, 0.2, 1);
+    
+    @media screen and (min-width: 768px) {
+        width: 125px;
+    }
+    
+    @media screen and (min-width: 1024px) {
+        width: 136px;
+    }
+    
+    &:hover,
+    &:focus {
+        background-color: var(--accent-text-color);
+        color: var(--primary-background);
+        border: 1px solid var(--accent-text-color);
+    }
+    }
+    
+    .film-modal-btn-watched{
+        margin-right: 20px;
+    }
+
+
+//   temporary
+
+.film-modal-open-btn{
+    width: 30px;
+    height: 30px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: absolute;
+    border: none;
+}
