@@ -8,17 +8,8 @@
 
     background-color: hsla(0, 0%, 0%, 0.4);
     opacity: 1;
-    transition: opacity 250ms cubic-bezier(0.4, 0, 0.2, 1), visibility 250ms cubic-bezier(0.4, 0, 0.2, 1);
-}
-
-.is-hidden {
-    opacity: 0;
-    pointer-events: none;
-    visibility: hidden;
-}
-
-.film-modal-info-list{
-    list-style: none;
+    transition: opacity 250ms cubic-bezier(0.4, 0, 0.2, 1), 
+                visibility 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .film-modal {
@@ -35,23 +26,23 @@
     transition: transform 500ms;
 
     @media screen and (max-width: 767px) {
-    max-height: calc(100vh - 100px);
-    overflow-y: auto;
-    overflow-x: hidden;
+        max-height: calc(100vh - 100px);
+        overflow-y: auto;
+        overflow-x: hidden;
     }
 
     @media screen and (min-width: 768px) {
-    display: flex;
-    width: 704px;
-    height: 552px;
-    padding: 40px 72px 40px 36px;
-}
+        display: flex;
+        width: 704px;
+        height: 552px;
+        padding: 40px 72px 40px 36px;
+    }
 
     @media screen and (min-width: 1024px) {
-    width: 814px;
-    height: 558px;
-    padding: 40px 16px;
-}
+        width: 814px;
+        height: 558px;
+        padding: 40px 16px;
+    }
 }
 
 .film-modal-poster-wrap {
@@ -59,12 +50,12 @@
     margin-bottom: 20px;
 
     @media screen and (min-width: 768px) {
-    margin-right: 68px;
-    margin-bottom: 0px;
+        margin-right: 68px;
+        margin-bottom: 0px;
     }
 
     @media screen and (min-width: 1024px) {
-    margin-right: 16px;
+        margin-right: 16px;
     }
 }
 
@@ -75,15 +66,16 @@
     z-index: 1001;
 
     @media screen and (min-width: 768px) {
-    max-width: 265px;
-    height: 375px;
+        max-width: 265px;
+        height: 375px;
     }
 
     @media screen and (min-width: 1024px) {
-    max-width: 333px;
-    height: 478px;
+        max-width: 333px;
+        height: 478px;
     }
 }
+
 .film-modal-item-title{
     min-width: 50%;
     font-weight: 500;
@@ -92,11 +84,11 @@
     color: #8c8c8c;
 
     @media screen and (min-width: 768px) {
-    min-width: 40%;
+        min-width: 40%;
     }
 
     @media screen and (min-width: 1024px) {
-    min-width: 30%;
+        min-width: 30%;
     } 
 }
 
@@ -121,16 +113,16 @@
     @media screen and (max-width: 767px) {
         position: static;
         transform: translateX(225px) translateY(-10px);
-        }
+    }
     
-        &:hover .film-modal-close-icon,
-        &:focus .film-modal-close-icon {
+    &:hover .film-modal-close-icon,
+    &:focus .film-modal-close-icon {
         transition: 250ms cubic-bezier(0.4, 0, 0.2, 1);
         stroke: var(--accent-text-color);
-        }
     }
+}
 
-    .film-modal-info-wrap {
+.film-modal-info-wrap {
     width: 100%;
 }
 
@@ -138,7 +130,7 @@
     display: flex;
 
     &:not(:last-child) {
-    margin-bottom: 8px;
+        margin-bottom: 8px;
     }
 }
 
@@ -185,9 +177,9 @@
     line-height: 1.67;
 
     @media screen and (max-width: 2560px) {
-    //   height: 25%;
-    height: inherit;
-    overflow-y: auto;
+        //   height: 25%;
+        height: inherit;
+        overflow-y: auto;
     }
 }
 
@@ -196,7 +188,8 @@
     margin-top: 20px;
 
     @media screen and (min-width: 1024px) {
-    margin-left: 8px;}
+        margin-left: 8px;
+    }
 }
 
 .film-modal-btn {
@@ -236,15 +229,14 @@
         color: var(--primary-background);
         border: 1px solid var(--accent-text-color);
     }
-    }
+}
     
-    .film-modal-btn-watched{
-        margin-right: 20px;
-    }
+.film-modal-btn-watched{
+    margin-right: 20px;
+}
 
 
 //   temporary
-
 .film-modal-open-btn{
     width: 30px;
     height: 30px;

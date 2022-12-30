@@ -12,9 +12,16 @@
   clip: rect(0 0 0 0);
 }
 
+.is-hidden {
+  opacity: 0;
+  pointer-events: none;
+  visibility: hidden;
+}
+
 html {
   box-sizing: border-box;
 }
+
 li {
   padding: 0;
   margin: 0;
@@ -44,6 +51,7 @@ img {
 textarea {
   resize: none;
 }
+
 body {
   font-family: var(--font-family);
 }
@@ -51,4 +59,11 @@ body {
 .link {
   text-decoration: none;
   color: var(--primary-text-color);
+}
+
+ul {
+  margin: 0;
+  padding: 0;
+
+  list-style: none;
 }
