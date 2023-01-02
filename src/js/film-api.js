@@ -4,7 +4,7 @@ const KEY = 'cf961b1b89f4c4a28558be2b04fdd59a';
 //EXPORT  FUNCTIONS
 export { fetchFilmsAPI, fetchGenresAPI, fetchMovieInfoAPI, fetchFilmsSearch};
 // FETCH FOR MOVIE OF THE DAY
-async function fetchFilmsAPI(page=1) {
+async function fetchFilmsAPI(page) {
     return await
         fetch(`${URL}/trending/movie/day?api_key=${KEY}&page=${page}`)
         .then((response) => {
