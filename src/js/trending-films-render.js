@@ -5,8 +5,9 @@ const refs = {
 }
 
 const basicImgURL = 'https://image.tmdb.org/t/p/w500';
+const page = 1;
 
-fetchFilmsAPI(page = 1)
+fetchFilmsAPI(page)
     .then(data => {
         refs.movieList.insertAdjacentHTML('beforeend', createCardMarkup(data));
     });
