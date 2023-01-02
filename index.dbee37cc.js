@@ -1,2 +1,0 @@
-!function(){var e={openModalBtn:document.querySelectorAll("[data-film-modal-open]"),closeModalBtn:document.querySelector("[data-film-modal-close]"),modal:document.querySelector("[data-film-modal]")};function o(){e.modal.classList.toggle("is-hidden")}e.openModalBtn.forEach((function(e){e.addEventListener("click",o)})),e.closeModalBtn.addEventListener("click",o),document.addEventListener("keydown",(function(e){"Escape"===e.key&&o()}))}();
-//# sourceMappingURL=index.dbee37cc.js.map
