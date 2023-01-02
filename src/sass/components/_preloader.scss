@@ -1,0 +1,81 @@
+.preloader {
+  position: fixed;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  background-color: #fafafa;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 50;
+}
+.preloader__content {
+  position: relative;
+  width: 200px;
+  height: 200px;
+}
+.loaded_hiding .preloader {
+  transition: 0.3s opacity;
+  opacity: 0;
+}
+
+.loaded .preloader {
+  display: none;
+}
+
+//  для іншого прелоадера(на всякий випадок)
+/* .preloader__first,
+.preloader__second,
+.preloader__third {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  border-radius: 50%;
+  animation: 1s linear;
+}
+.preloader__first {
+  border-bottom: 5px solid #ff7473;
+  animation: 1s linear infinite;
+  animation-name: first;
+}
+.preloader__second {
+  border-right: 5px solid #ffc952;
+  animation: 1s linear infinite;
+  animation-name: second;
+}
+.preloader__third {
+  border-top: 5px solid #4788e0;
+  animation: 1s linear infinite;
+  animation-name: third;
+}
+@keyframes first {
+  0% {
+    transform: rotateX(35deg) rotateY(-45deg) rotateZ(0deg);
+  }
+  100% {
+    transform: rotateX(35deg) rotateY(-45deg) rotateZ(360deg);
+  }
+}
+@keyframes second {
+  0% {
+    transform: rotateX(50deg) rotateY(10deg) rotateZ(0deg);
+  }
+  100% {
+    transform: rotateX(50deg) rotateY(10deg) rotateZ(360deg);
+  }
+}
+@keyframes third {
+  0% {
+    transform: rotateX(35deg) rotateY(55deg) rotateZ(0deg);
+  }
+  100% {
+    transform: rotateX(35deg) rotateY(55deg) rotateZ(360deg);
+  }
+} */
+
+// .js-hidden {
+//   opacity: 0;
+//   visibility: hidden;
+//   pointer-events: none;
+// }

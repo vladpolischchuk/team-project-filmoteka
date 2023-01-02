@@ -1,8 +1,7 @@
 @import './common';
 @import './base/variables';
-@import'./base/base';
+@import './base/base';
 @import './base/container';
-
 
 @import './layout/header';
 @import './layout/header-library';
@@ -10,5 +9,4 @@
 @import './components/card';
 @import './layout/footer';
 @import './components/modal-film';
-
-
+@import './components/preloader';
