@@ -2,7 +2,7 @@ const URL = 'https://api.themoviedb.org/3';
 const KEY = 'cf961b1b89f4c4a28558be2b04fdd59a';
 
 //EXPORT  FUNCTIONS
-export { fetchFilmsAPI, fetchGenresAPI, fetchMovieInfoAPI};
+export { fetchFilmsAPI, fetchGenresAPI, fetchMovieInfoAPI, fetchFilmsSearch};
 // FETCH FOR MOVIE OF THE DAY
 async function fetchFilmsAPI(page=1) {
     return await
@@ -62,3 +62,22 @@ async function fetchMovieInfoAPI(movie_id) {
 }
 //FUNCTION CALL
 //fetchMovieInfoAPI(8);
+// ============= FETCH FOR SEARCH FILMS =================
+
+async function fetchFilmsSearch(searchQuery,page) {
+    return await
+        fetch(`${URL}/search/movie?api_key=${KEY}&language=en-US&query=${searchQuery}&page=${page}&include_adult=folse`)
+        .then((response) => {
+            if (!response.ok) {
+
+                throw new Error('Network response was not OK');
+            }
+            return response.json();
+        })
+        .then((data) => {
+          return data.results
+        })
+        .catch((error) => {
+            console.error("error:", error);
+        });
+};
