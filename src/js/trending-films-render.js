@@ -32,15 +32,14 @@ const options = {
   },
 };
 
-const pagination = new Pagination(refs.pagination, options);
-const page = pagination.getCurrentPage();
-
 const refs = {
     movieList: document.querySelector('.home'),
     pagination: document.querySelector('.tui-pagination'),
 }
 
 const basicImgURL = 'https://image.tmdb.org/t/p/w500';
+const pagination = new Pagination(refs.pagination, options);
+const page = pagination.getCurrentPage();
 
 fetchGenresAPI().then(genres => {
     fetchFilmsAPI(page).then(data => {
