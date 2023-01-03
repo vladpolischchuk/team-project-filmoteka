@@ -1,4 +1,4 @@
-import {fetchFilmsAPI, fetchGenresAPI} from './film-api';
+import { fetchFilmsAPI, fetchGenresAPI } from './film-api';
 
 const refs = {
     movieList: document.querySelector('.home'),
@@ -47,5 +47,6 @@ function createCardMarkup(data, genres_names) {
     </div>
   </a>
 </li>`;
-    }).join('');
+    })
+    .join('');
 }
