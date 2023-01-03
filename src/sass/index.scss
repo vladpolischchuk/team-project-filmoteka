@@ -1,12 +1,18 @@
 @import './common';
+
+// base
 @import './base/variables';
 @import './base/base';
+@import './base/preloader';
 @import './base/container';
-@import './layout/header';
+
+// layout
+@import './layout/header-home';
 @import './layout/header-library';
+@import './layout/pagination';
+@import './layout/footer';
+
+// components
 @import './components/input';
 @import './components/card';
-@import './layout/footer';
 @import './components/modal-film';
-@import './layout/pagination';
-@import './components/preloader';
