@@ -1,3 +1,16 @@
 .pagination-is-hidden {
   display: none;
 }
+
+.tui-pagination {
+  margin-top: 0px;
+  margin-bottom: 60px;
+}
+
+.tui-pagination .tui-is-selected,
+.tui-pagination strong {
+  color: #fff;
+  background: #ff6b08;
+  border-color: #ff6b08;
+  cursor: default;
+}
