@@ -83,6 +83,7 @@ async function fetchMoreFilmsAPI(page) {
       return response.json();
     })
     .then(data => {
+      window.scrollTo(0, 0);
       return data.results;
     })
     .catch(error => {
