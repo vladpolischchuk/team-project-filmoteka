@@ -1,12 +1,12 @@
-.transform {
-  position: relative;
-  cursor: pointer;
- 
-}
-
 .container-input {
   display: flex;
-  justify-content: center
+  justify-content: center;
+  padding-top: 50px;
+}
+.form__group {
+  position: relative;
+
+  transition: color 250ms cubic-bezier(0.4, 0, 0.2, 1), border-color 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .input-position {
@@ -16,10 +16,11 @@
   border-bottom: 1px solid var(--color-input);
   background-color: transparent;
   cursor: pointer;
-
+  
+  outline: none;
   color: var(--primary-text-color);
 
-  transition: transform 250ms cubic-bezier(0.4, 0, 0.2, 1);
+  transition: transform  250ms cubic-bezier(0.4, 0, 0.2, 1), color 250ms cubic-bezier(0.4, 0, 0.2, 1);
   
 }
 
@@ -37,35 +38,52 @@
 
 .film-input {
   position: absolute;
-  top: 0;
+  top: 50%;
   left: 0;
-  height: 24px;
+
 
   color: var(--color-input);
   font-weight: 400;
   font-size: 14px;
   line-height: 16px;
 
-  transition: transform 250ms cubic-bezier(0.4, 0, 0.2, 1);
+  transform: translateY(-50%);
+  transition: transform 250ms cubic-bezier(0.4, 0, 0.2, 1), color 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
-.input-position:hover,
-.input-position:focus {
-  border-bottom: 1px solid var(--primary-text-color);
-}
-.input-position:focus + .film-input,
-.input-position:hover + .film-input {
-  color: var(--primary-text-color);
-
-}
-
-.input-position:focus + .film-input,
+.input-position:focus+.film-input,
 .input-position:not(:placeholder-shown) + .film-input {
-  transform: translateY(-20px);
+    color: var(--primary-text-color);
+    transform: translateY(-30px);
+    transform-origin: top left;
+}
+.form__group:hover > .input-position,
+.form__group:hover > .film-input {
+    color: var(--primary-text-color);
+    border-color: var(--primary-text-color);
 }
 
-.input-position:focus {
-  outline: none;
+.button-input {
+  position: absolute;
+  top: 0;
+  right: 0;
+
+  background-color: transparent;
+  border: none;
+  color: var(--primary-text-color);
 }
+
+.svg-link {
+  color: var(--primary-text-color);
+}
+
+.find {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  
+  fill: currentColor;
+}
+
 
 .button-input {
   position: absolute;
