@@ -3,9 +3,17 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-
+   
     <title>Filmoteka</title>
-    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500&display=swap" rel="stylesheet">
+
+    <!-- Favicon -->
+    <link rel="icon" href="favicon-popcorn.ico">
+    <link rel="apple-touch-icon" sizes="180x180" href="img/favicon/favicon-popcorn.png">
+
+    <link
+      href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500&display=swap"
+      rel="stylesheet"
+    />
 
     <!-- Styles -->
     <link rel="stylesheet" href="./sass/index.scss" />
@@ -14,7 +22,6 @@
     <script type="module" src="./index.js"></script>
   </head>
   <body>
-    
     <!-- Header -->
     <include src="./partials/header-home.html"></include>
 
@@ -23,10 +30,16 @@
       <include src="./partials/card-section.html"></include>
     </main>
 
+    <!-- pagination  -->
+    <include src="./partials/pagination.html"></include>
+
     <!-- Footer -->
     <include src="./partials/footer.html"></include>
 
     <!-- Modal window for movies  -->
     <include src="./partials/modal-film.html"></include>
+
+    <!-- Preloader  -->
+    <include src="./partials/preloader.html"></include>
   </body>
 </html>
