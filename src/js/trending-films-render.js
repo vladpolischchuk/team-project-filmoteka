@@ -1,11 +1,46 @@
-import { fetchFilmsAPI, fetchGenresAPI } from './film-api';
+import Pagination from 'tui-pagination';
+import 'tui-pagination/dist/tui-pagination.css';
+
+import { fetchFilmsAPI, fetchMoreFilmsAPI, fetchGenresAPI } from './film-api';
+
+export { createCardMarkup };
+
+const options = {
+  totalItems: 0,
+  itemsPerPage: 20,
+  visiblePages: 5,
+  page: 1,
+  centerAlign: false,
+  firstItemClassName: 'tui-first-child',
+  lastItemClassName: 'tui-last-child',
+  template: {
+    page: '<a href="#" class="tui-page-btn">{{page}}</a>',
+    currentPage:
+      '<strong class="tui-page-btn tui-is-selected">{{page}}</strong>',
+    moveButton:
+      '<a href="#" class="tui-page-btn tui-{{type}}">' +
+      '<span class="tui-ico-{{type}}">{{type}}</span>' +
+      '</a>',
+    disabledMoveButton:
+      '<span class="tui-page-btn tui-is-disabled tui-{{type}}">' +
+      '<span class="tui-ico-{{type}}">{{type}}</span>' +
+      '</span>',
+    moreButton:
+      '<a href="#" class="tui-page-btn tui-{{type}}-is-ellip">' +
+      '<span class="tui-ico-ellip">...</span>' +
+      '</a>',
+  },
+};
+
+const pagination = new Pagination(refs.pagination, options);
+const page = pagination.getCurrentPage();
 
 const refs = {
     movieList: document.querySelector('.home'),
+    pagination: document.querySelector('.tui-pagination'),
 }
 
 const basicImgURL = 'https://image.tmdb.org/t/p/w500';
-const page = 1;
 
 fetchGenresAPI().then(genres => {
     fetchFilmsAPI(page).then(data => {
@@ -14,6 +49,7 @@ fetchGenresAPI().then(genres => {
     });
 });
 
+pagination.on('afterMove', fetchMoreFilmsAPI);
 
 function createCardMarkup(data, genres_names) {
     if (data.length === 0) {
