@@ -1,6 +1,7 @@
 import Pagination from 'tui-pagination';
 import 'tui-pagination/dist/tui-pagination.css';
 import { createCardMarkup } from './trending-films-render';
+import { preloader } from './preloader';
 
 const URL = 'https://api.themoviedb.org/3';
 const KEY = 'cf961b1b89f4c4a28558be2b04fdd59a';
@@ -20,7 +21,6 @@ export {
 };
 
 // FETCH FOR MOVIE OF THE DAY
-
 const options = {
   totalItems: 0,
   itemsPerPage: 20,
@@ -51,7 +51,7 @@ const options = {
 const pagination = new Pagination(refs.pagination, options);
 const page = pagination.getCurrentPage();
 
-async function fetchFilmsAPI() {
+async function fetchFilmsAPI(page = 1) {
   return await fetch(`${URL}/trending/movie/day?api_key=${KEY}&page=${page}`)
     .then(response => {
       if (!response.ok) {
@@ -62,6 +62,7 @@ async function fetchFilmsAPI() {
     .then(data => {
       pagination.reset(data.total_results);
       refs.pagination.classList.remove('pagination-is-hidden');
+      
       return data.results;
     })
     .catch(error => {
