@@ -15,6 +15,7 @@ const refs = {
 export {
   fetchFilmsAPI,
   fetchMoreFilmsAPI,
+  fetchMoreGenresAPI,
   fetchGenresAPI,
   fetchMovieInfoAPI,
   fetchFilmsSearch,
@@ -51,7 +52,7 @@ const options = {
 const pagination = new Pagination(refs.pagination, options);
 const page = pagination.getCurrentPage();
 
-async function fetchFilmsAPI(page = 1) {
+async function fetchFilmsAPI(page) {
   return await fetch(`${URL}/trending/movie/day?api_key=${KEY}&page=${page}`)
     .then(response => {
       if (!response.ok) {
@@ -62,7 +63,7 @@ async function fetchFilmsAPI(page = 1) {
     .then(data => {
       pagination.reset(data.total_results);
       refs.pagination.classList.remove('pagination-is-hidden');
-      
+
       return data.results;
     })
     .catch(error => {
@@ -73,22 +74,38 @@ async function fetchFilmsAPI(page = 1) {
     });
 }
 
-pagination.on('afterMove', fetchMoreFilmsAPI);
-
-async function fetchMoreFilmsAPI(event) {
-  const currentPage = event.page;
-
-  return await fetch(
-    `${URL}/trending/movie/day?api_key=${KEY}&page=${currentPage}`
-  )
-    .then(response => response.json())
+async function fetchMoreFilmsAPI(page) {
+  return await fetch(`${URL}/trending/movie/day?api_key=${KEY}&page=${page}`)
+    .then(response => {
+      if (!response.ok) {
+        throw new Error('Network response was not OK');
+      }
+      return response.json();
+    })
     .then(data => {
       return data.results;
     })
-    .then(data => {
-      refs.movieList.innerHTML = '';
-      refs.movieList.insertAdjacentHTML('beforeend', createCardMarkup(data));
+    .catch(error => {
+      console.error(
+        'There has been a problem with your fetch operation:',
+        error
+      );
     });
+}
+
+pagination.on('afterMove', fetchMoreGenresAPI);
+
+async function fetchMoreGenresAPI(event) {
+  const currentPage = event.page;
+
+  fetchGenresAPI().then(genres => {
+    fetchMoreFilmsAPI(currentPage).then(data => {
+      let markup = createCardMarkup(data, genres);
+
+      refs.movieList.innerHTML = '';
+      refs.movieList.insertAdjacentHTML('beforeend', markup);
+    });
+  });
 }
 
 //FUNCTION CALL
