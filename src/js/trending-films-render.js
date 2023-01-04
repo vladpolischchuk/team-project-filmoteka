@@ -60,7 +60,7 @@ function createCardMarkup(data, genres_names) {
     return;
   }
   return data
-    .map(({ title, poster_path, release_date, genre_ids }) => {
+    .map(({ id, title, poster_path, release_date, genre_ids }) => {
       let release = release_date.slice(0, 4);
       let genres = [];
       for (let genre_id of genre_ids) {
@@ -72,7 +72,7 @@ function createCardMarkup(data, genres_names) {
       }
       let genres_str = genres.join(', ');
       return `<li class="card">
-  <a href="" class="card-link link">
+  <a href="" class="card-link link" data-id="${id}">
     <img class="card-img" src="${basicImgURL}${poster_path}" alt="${title}">
     <h3 class="card-name">${title}</h3>
     <div class="card-item">
