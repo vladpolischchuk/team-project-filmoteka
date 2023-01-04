@@ -1,0 +1,113 @@
+.mdl-win-team {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    z-index: 100;
+
+    width: 500px;
+    height: 550px;
+
+    background-color: rgb(255, 255, 255);
+    border-radius: 5px;
+    box-shadow: 2px 4px 3px rgb(0 0 0 / 12%), 2px 4px 5px rgb(0 0 0 / 14%), 2px 4px 5px rgb(0 0 0 / 20%);
+
+    transform: translate(-50%,-50%);
+}
+
+.close-btn-mdl {
+    position: absolute;
+    top: 0;
+    right: 0;
+    padding: 6px;
+
+    width: 30px;
+    height: 30px;
+
+    border-radius: 100%;
+
+    color: var(--primary-text-color);
+    border-color: transparent;
+    background-color: var(--accent-text-color);
+
+    transform: translate(50%, -50%);
+    transition: color .35s cubic-bezier(.4,0,.2,1),
+                background-color .35s cubic-bezier(.4,0,.2,1),
+                border-color .35s cubic-bezier(.4, 0, .2, 1);
+
+    &:hover,
+    &:focus {
+        color: var(--accent-text-color);
+        background-color: var(--primary-text-color);
+        border-color: var(--accent-text-color);
+    }
+}
+
+.close-btn-mdl__icon {
+    fill: currentColor;
+}
+
+.title-mdl-team {
+    margin-top: 25px;
+    margin-bottom: 15px;
+
+    text-align: center;
+    font-weight: 500;
+}
+
+.list-taem{
+    display: flex;
+    justify-content: center;
+}
+
+.wrapper-item{
+    display: flex;
+    justify-content: center;
+}
+
+.title-name,
+.description {
+    margin-top: 8px;
+    text-align: center;
+}
+
+.description {
+    color: var(--accent-text-color);
+}
+
+.social {
+    display: flex;
+    justify-content: center;
+    
+    margin-top: 10px;
+}
+
+.social__item:last-child {
+    margin-left: 20px;
+}
+
+.social__icon,
+.social__link {
+    display: inline-block;
+    width: 44px;
+    height: 44px;
+}
+
+.social__link {
+    background-color: rgba(227, 227, 227, 0.74);
+    border-radius: 50%;
+
+    color: black;
+
+    transition: color .25s cubic-bezier(.4, 0, .2, 1),
+            transform .35s cubic-bezier(.4, 0, .2, 1);
+
+    &:hover,
+    &:focus {
+        color: var(--accent-text-color);
+        transform: scale(1.1);
+    }
+}
+
+.social__icon {
+    fill: currentColor;
+}
