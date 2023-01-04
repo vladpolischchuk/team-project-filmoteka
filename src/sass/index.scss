@@ -1,18 +1,18 @@
 @import './common';
+@import './utils/module';
 
 // base
-@import './base/variables';
 @import './base/base';
 @import './base/preloader';
 @import './base/container';
 
 // layout
-@import './layout/header-home';
-@import './layout/header-library';
-@import './layout/pagination';
-@import './layout/footer';
+@import './layout/header-home-page';
+@import './layout/header-library-page';
+@import './layout/footer-all-page';
 
 // components
 @import './components/input';
 @import './components/card';
 @import './components/modal-film';
+@import './components/pagination';

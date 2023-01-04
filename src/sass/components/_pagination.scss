@@ -26,6 +26,9 @@
   padding-top: 13px;
   padding-bottom: 13px;
   font-weight: 500;
+
+  transition: background-color 250ms cubic-bezier(0.4, 0, 0.2, 1), 
+              color 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 #pagination .tui-first,
@@ -47,8 +50,8 @@
 }
 
 #pagination > .tui-page-btn:hover {
-  color: var(--black-text-color);
-  background-color: var(--footer-background);
+  color: var(--primary-text-color);
+  background-color: var(--pagination-background);
   transition: background-color 350ms cubic-bezier(0.4, 0, 0.2, 1),
     color 350ms cubic-bezier(0.4, 0, 0.2, 1);
 }
@@ -62,4 +65,10 @@
 
 #pagination > .tui-is-selected:hover {
   background-color: var(--accent-text-color);
+  color: var(--primary-text-color);
+}
+
+#pagination > .tui-is-disabled:hover {
+  background-color: transparent;
+  color: transparent;
 }
