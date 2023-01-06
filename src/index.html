@@ -23,9 +23,9 @@
     <link rel="stylesheet" href="./sass/index.scss" />
   </head>
   <body>
+    <canvas></canvas>
     <!-- Header -->
     <include src="./partials/header-home-page.html"></include>
-
     <!-- Main part -->
     <main>
       <include src="./partials/card-section.html"></include>
@@ -41,5 +41,11 @@
     <include src="./partials/preloader.html"></include>
     <!-- Scripts -->
     <script type="module" src="./index.js"></script>
+    <script src="https://unpkg.com/webgl-fluid@0.2"></script>
+    <script>
+      window['webgl-fluid'](document.querySelector('canvas'), {
+        TRANSPARENT: true,
+      });
+    </script>
   </body>
 </html>

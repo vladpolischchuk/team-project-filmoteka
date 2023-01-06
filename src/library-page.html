@@ -7,10 +7,17 @@
     <title>Library</title>
 
     <!-- Favicon -->
-    <link rel="icon" href="favicon-popcorn.ico">
-    <link rel="apple-touch-icon" sizes="180x180" href="img/favicon/favicon-popcorn.png">
+    <link rel="icon" href="favicon-popcorn.ico" />
+    <link
+      rel="apple-touch-icon"
+      sizes="180x180"
+      href="img/favicon/favicon-popcorn.png"
+    />
 
-    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500&display=swap" rel="stylesheet">
+    <link
+      href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500&display=swap"
+      rel="stylesheet"
+    />
 
     <!-- Styles -->
     <link rel="stylesheet" href="./sass/index.scss" />
@@ -19,7 +26,7 @@
     <script type="module" src="./index.js"></script>
   </head>
   <body>
-
+    <canvas></canvas>
     <!-- Header -->
     <include src="./partials/header-library-page.html"></include>
 
@@ -27,8 +34,16 @@
     <main>
       <include src="./partials/card-section-library.html"></include>
     </main>
+    <!-- Preloader  -->
+    <include src="./partials/preloader.html"></include>
 
     <!-- Footers -->
     <include src="./partials/footer-all-page.html"></include>
+    <script src="https://unpkg.com/webgl-fluid@0.2"></script>
+    <script>
+      window['webgl-fluid'](document.querySelector('canvas'), {
+        TRANSPARENT: true,
+      });
+    </script>
   </body>
 </html>
