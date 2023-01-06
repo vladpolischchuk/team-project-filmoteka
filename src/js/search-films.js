@@ -41,8 +41,11 @@ const refs = {
   searchQuery: document.querySelector('.input-position'),
   movieList: document.querySelector('.home'),
   pagination: document.querySelector('.tui-pagination'),
+  filmModalList: document.querySelector('.backdrop')
+};
+  
 
-  };
+  
   const options = {
     totalItems: 0,
     itemsPerPage: 20,
