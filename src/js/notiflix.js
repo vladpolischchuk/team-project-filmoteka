@@ -52,7 +52,6 @@ function fetchFilmsAPI() {
           console.error('There has been a problem with your fetch operation:', error);
       });
 }
-console.log(fetchFilmsAPI())
 
 function onInput(e) {
   e.preventDefault();
