@@ -5,6 +5,8 @@ refs = {
   filmModalList: document.querySelector('.backdrop'),
 };
 
+console.log(refs.filmModalList);
+
 import {
   // fetchFilmsAPI,
   // fetchMoreFilmsAPI,
@@ -24,22 +26,38 @@ const openFilmModalHandler = event => {
 
     fetchMovieInfoAPI(filmModalId).then(data => {
       let markup = createModalMarkupMovie(data);
-      console.log(refs.filmModalList);
+
       refs.filmModalList.innerHTML = markup;
       refs.filmModalList.classList.remove('is-hidden');
       const buttonCloseModal = document.querySelector(
         '.film-modal-close-button'
       );
       buttonCloseModal.addEventListener('click', closeModal);
+      refs.filmModalList.addEventListener('click', closeModalBackdrop);
     });
   }
 };
+
+const closeModalEscape = event => {
+  if (event.code === 'Escape') {
+    closeModal();
+  }
+};
+
+const closeModalBackdrop = event => {
+  if (event.target.classList.contains('backdrop')) {
+    closeModal();
+  }
+};
+
+window.addEventListener('keydown', closeModalEscape);
 
 openModalFilm.addEventListener('click', openFilmModalHandler);
 
 const closeModal = () => {
   refs.filmModalList.classList.add('is-hidden');
   openModalFilm.removeEventListener('click', closeModal);
+  refs.filmModalList.removeEventListener('click', closeModalBackdrop);
 };
 
 function createModalMarkupMovie(data) {
@@ -47,12 +65,19 @@ function createModalMarkupMovie(data) {
   const {
     id,
     title,
+    overview,
     poster_path,
     release_date,
-    genre_ids,
+    genres,
+    original_title,
+    popularity,
     vote_average,
     vote_count,
   } = data;
+
+  const basicImgURL = 'https://image.tmdb.org/t/p/w500';
+
+  const genresMovie = data.genres.map(element => element.name).join(', ');
 
   return `<div class="film-modal">
       <button type="button" class="film-modal-close-button" data-film-modal-close> 
@@ -65,40 +90,35 @@ function createModalMarkupMovie(data) {
       <div class='film-modal-poster-wrap'>
         <img
           class='film-modal-poster-img'
-          src="/src/img/film-modal-temporary/temporary-img.png" alt="film"
+          src="${basicImgURL}${poster_path}" alt="film"
         />
       </div>
       <div class="film-modal-info-wrap">
       <h2 class="film-modal-title">${title}</h2>
       <ul class="film-modal-info-list">
         <li class="film-modal-item ">
-          <p class="film-modal-item-title">Vote ${vote_count}</p>
+          <p class="film-modal-item-title">Vote / Votes</p>
           <p class="film-modal-item-description">
         <span class="film-modal-item-vote color">${vote_average}</span>
-        
-        <span class="film-modal-item-vote">back-end</span>
+        <span>/</span>
+        <span class="film-modal-item-vote">${vote_count}</span>
       </p>
       </li>
       <li class="film-modal-item ">
         <p class="film-modal-item-title">Popularity</p>
-        <p class='film-modal-item-description'>back-end</p>
+        <p class='film-modal-item-description'>${popularity}</p>
       </li>
       <li class="film-modal-item ">
         <p class="film-modal-item-title">Original Title</p>
-        <p class="film-modal-item-description film-modal-item-original-title">back-end</p>
+        <p class="film-modal-item-description film-modal-item-original-title">${original_title}</p>
       </li>
       <li class="film-modal-item ">
         <p class="film-modal-item-title">Genre</p>
-        <p class='film-modal-item-description'>back-end</p>
+        <p class='film-modal-item-description'>${genresMovie}</p>
       </li>
     </ul>
     <h3 class="film-modal-about">ABOUT</h3>
-    <p class="film-modal-description">Four of the West’s most infamous outlaws assemble 
-      to steal a huge stash of gold from the most corrupt settlement of the gold rush towns.
-      But not all goes to plan one is killed and the other three escapes with bags of gold hide out in the abandoned
-      gold mine where they happen across another gang of three – who themselves were planning 
-      to hit the very same bank! As tensions rise, things go from bad to worse as they realise the 
-      bags of gold are filled with lead... they’ve been double crossed – but by who and how?
+    <p class="film-modal-description">${overview}
     </p>
     <div class="film-modal-btn-wrap">
       <button class="film-modal-btn film-modal-btn-watched add-to-watched-btn data-id="${id}" type="button">add to Watched</button>
