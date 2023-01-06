@@ -9,6 +9,7 @@ const KEY = 'cf961b1b89f4c4a28558be2b04fdd59a';
 const refs = {
   pagination: document.querySelector('.tui-pagination'),
   movieList: document.querySelector('.card-list'),
+  filmModalList: document.querySelector('.backdrop'),
 };
 
 //EXPORT  FUNCTIONS
