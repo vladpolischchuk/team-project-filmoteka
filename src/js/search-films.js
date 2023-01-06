@@ -37,7 +37,7 @@ failure: {
 
 
 const refs = {
-    form: document.querySelector('.input'),
+  form: document.querySelector('.input'),
   searchQuery: document.querySelector('.input-position'),
   movieList: document.querySelector('.home'),
   pagination: document.querySelector('.tui-pagination'),
@@ -77,22 +77,25 @@ const refs = {
 // ============= FETCH FOR SEARCH FILMS =================
 
 const URL = 'https://api.themoviedb.org/3';
+
 const KEY = 'cf961b1b89f4c4a28558be2b04fdd59a';
 let inputOn = '';
 const page = pagination.getCurrentPage();
 
-async function fetchFilmsSearch() {
+async function fetchFilmsSearch(page) {
   try {
         const response = await fetch(`${URL}/search/movie?api_key=${KEY}&language=en-US&query=${inputOn}&page=${page}&include_adult=folse`)
         if (!response.ok) {
             throw new Error('Network response was not OK');
         }
         const data = await response.json();
-        console.log(data.results);
+
         onList(data);
         console.log(data.results);
-        // pagination.reset(data.total_results);
-      refs.pagination.classList.remove('pagination-is-hidden');
+       
+        pagination.reset(data.total_results);
+        refs.pagination.classList.remove('pagination-is-hidden');
+  
         return data.results;
        
     } catch (error) {
@@ -104,8 +107,9 @@ async function fetchFilmsSearch() {
 
 function onInput(e) {
   e.preventDefault();
-  inputOn = inputOn = refs.searchQuery.value.trim();
- 
+  
+  inputOn = inputOn = e.target.elements.searchQuery.value.trim();
+
   fetchGenresAPI().then(genres => {
     fetchFilmsSearch(page).then(data => {
         let markup = createCardMarkup(data, genres);
