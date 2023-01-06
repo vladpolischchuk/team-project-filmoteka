@@ -80,24 +80,25 @@ const URL = 'https://api.themoviedb.org/3';
 const KEY = 'cf961b1b89f4c4a28558be2b04fdd59a';
 let inputOn = '';
 const page = pagination.getCurrentPage();
-async function fetchFilmsSearch(){
-try {
-const response = await fetch( `${URL}/search/movie?api_key=${KEY}&language=en-US&query=${inputOn}&page=${page}&include_adult=folse`)
-if(!response.ok) {
 
-throw new Error ('Network response was not OK')
-}
-const data = await response.json();
-onList(data);
-pagination.reset(data.total_results);
+async function fetchFilmsSearch() {
+  try {
+        const response = await fetch(`${URL}/search/movie?api_key=${KEY}&language=en-US&query=${inputOn}&page=${page}&include_adult=folse`)
+        if (!response.ok) {
+            throw new Error('Network response was not OK');
+        }
+        const data = await response.json();
+        console.log(data.results);
+        onList(data);
+        console.log(data.results);
+        // pagination.reset(data.total_results);
       refs.pagination.classList.remove('pagination-is-hidden');
- return data.results;
-} catch (error) {console.error(
-  'There has been a problem with your fetch operation:',
-  error
-);}
+        return data.results;
+       
+    } catch (error) {
+        console.error('There has been a problem with your fetch operation:', error);
+    }
 }
-
 
 // =====================================================
 
