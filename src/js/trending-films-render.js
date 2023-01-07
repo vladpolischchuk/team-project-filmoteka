@@ -54,8 +54,6 @@ fetchGenresAPI().then(genres => {
   });
 });
 
-//pagination.on('afterMove', fetchMoreGenresAPI);
-
 function createCardMarkup(data, genres_names) {
   if (data.length === 0) {
     return;
