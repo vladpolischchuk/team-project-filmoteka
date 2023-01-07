@@ -93,8 +93,6 @@ async function fetchFilmsSearch(page) {
     pagination.reset(data.total_results);
     refs.pagination.classList.remove('pagination-is-hidden');
 
-    onList(data);
-
     return data.results;
   } catch (error) {
     console.error('There has been a problem with your fetch operation:', error);
@@ -112,8 +110,6 @@ async function fetchMoreFilmsSearch(page) {
       throw new Error('Network response was not OK');
     }
     const data = await response.json();
-
-    onList(data);
 
     window.scrollTo({
       top: 0,
@@ -150,6 +146,11 @@ function onInput(e) {
 
   fetchGenresAPI().then(genres => {
     fetchFilmsSearch().then(data => {
+      if (data.length === 0 ) {
+        return Notiflix.Notify.failure(
+          'Search result not successful. Enter the correct movie name and'
+        );
+      }
       let markup = createCardMarkup(data, genres);
       refs.movieList.insertAdjacentHTML('beforeend', markup);
     });
@@ -162,10 +163,4 @@ function clearInput() {
   refs.searchQuery.value = '';
 }
 
-function onList(data) {
-  if (data.results.length === 0 || data.results === []) {
-    return Notiflix.Notify.failure(
-      'Search result not successful. Enter the correct movie name and'
-    );
-  }
-}
+
