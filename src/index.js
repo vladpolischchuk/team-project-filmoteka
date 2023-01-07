@@ -7,3 +7,5 @@ import './js/notiflix';
 import './js/modal-film';
 
 import './js/film-modal-render';
+
+import './js/search-films';
