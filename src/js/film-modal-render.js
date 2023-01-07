@@ -5,8 +5,6 @@ const refs = {
   filmModalList: document.querySelector('.backdrop'),
 };
 
-console.log(refs.filmModalList);
-
 import {
   // fetchFilmsAPI,
   // fetchMoreFilmsAPI,
