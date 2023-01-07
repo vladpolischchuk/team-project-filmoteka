@@ -1,7 +1,7 @@
 const URL = 'https://api.themoviedb.org/3';
 const KEY = 'cf961b1b89f4c4a28558be2b04fdd59a';
 
-refs = {
+const refs = {
   filmModalList: document.querySelector('.backdrop'),
 };
 
