@@ -40,6 +40,7 @@ const options = {
 const refs = {
   movieList: document.querySelector('.home'),
   pagination: document.querySelector('.tui-pagination'),
+  filmModalList: document.querySelector('.backdrop'),
 };
 
 const basicImgURL = 'https://image.tmdb.org/t/p/w500';

@@ -3,8 +3,8 @@ import Notiflix from 'notiflix';
 const refs = {
   form: document.querySelector('.input'),
   input: document.querySelector('.input-position'),
-
-}
+  filmModalList: document.querySelector('.backdrop'),
+};
 
 Notiflix.Notify.init({
   width: '320px',
