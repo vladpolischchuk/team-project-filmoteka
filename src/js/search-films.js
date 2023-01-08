@@ -10,7 +10,7 @@ import 'tui-pagination/dist/tui-pagination.css';
 Notiflix.Notify.init({
   width: '320px',
   position: 'center-top',
-  distance: '150px',
+  distance: '5px',
   opacity: '1',
   fontFamily: 'Roboto',
   fontStyle: 'normal',
@@ -22,7 +22,7 @@ Notiflix.Notify.init({
   cssAnimationDuration: 4000,
 
   failure: {
-    background: 'transparent',
+    background: '#000',
     textColor: '#FF001B',
     childClassName: 'notiflix-notify-failure',
     fontAwesomeClassName: 'fas fa-times-circle',
