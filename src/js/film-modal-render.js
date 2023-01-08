@@ -44,7 +44,7 @@ function openFilmModalHandler(e) {
       fetchMovieInfoAPI(filmModalId).then(data => {
         refs.filmModalList.innerHTML = createModalMarkupMovie(data);
         refs.filmModalList.classList.remove('is-hidden');
-        refs.filmModalList.addEventListener('click', onBTNModal(data));
+        refs.filmModalList.addEventListener('click', onToWatchedBtnClick(data));
         const buttonCloseModal = document.querySelector('.film-modal-close-button');
         buttonCloseModal.addEventListener('click', closeModal);
         refs.filmModalList.addEventListener('click', closeModalBackdrop);
@@ -56,7 +56,7 @@ function openFilmModalHandler(e) {
 }
 
 function createModalMarkupMovie(data) {
-    console.log(data);
+    // console.log(data);
     const {
       id,
       title,
@@ -151,10 +151,13 @@ function createModalMarkupMovie(data) {
 window.addEventListener('keydown', closeModalEscape);
 
 
-function onBTNModal(data) {
-      console.log(data)
-        const watchedBtn = document.querySelector('.add-to-watched-btn');
-watchedBtn.addEventListener('click', () =>{
+function onToWatchedBtnClick(data) {
+      // console.log(data)
+        const addToWatchedBtn = document.querySelector('.add-to-watched-btn');
+        const watchedArray = [];
+        const savedDataArray = localStorage.getItem('Watched movies');
+        const parsedDataWatched = JSON.parse(savedDataArray);
+addToWatchedBtn.addEventListener('click', () =>{
   const {
     id,
     title,
@@ -167,7 +170,47 @@ watchedBtn.addEventListener('click', () =>{
     vote_average,
     vote_count,
   } = data;
-  console.log(id);
-})
+  // console.log(id);
 
+  if (parsedDataWatched) {
+    for (const array of parsedDataWatched){ 
+      watchedArray.push(array);
     }
+  } 
+  if (watchedArray.includes(id)) {
+    addToWatchedBtn.textContent = 'Remove from watched';
+    addToWatchedBtn.addEventListener('click', removeMovieFromWatched)
+  } else {
+    addToWatchedBtn.textContent = 'Add to watched';
+    addToWatchedBtn.addEventListener('click', saveMovieToWatched)
+  }
+  
+  function removeMovieFromWatched(event) {
+    for (let i = 0; i < watchedArray.length; i++) {
+      if (watchedArray[i] === id) {
+        watchedArray.splice(i, 1);
+      }
+    }
+    localStorage.setItem('Watched movies', JSON.stringify(watchedArray));
+    
+    event.currentTarget.removeEventListener('click', removeMovieFromWatched);
+    event.currentTarget.addEventListener('click', saveMovieToWatched);
+    addToWatchedBtn.textContent = 'Add to watched';
+  }
+
+  function saveMovieToWatched(event) {
+    for (const movieId of watchedArray) {
+      if (movieId === id) {
+        return
+      }
+    }
+    watchedArray.push(id);
+    localStorage.setItem('Watched movies', JSON.stringify(watchedArray));
+
+    event.currentTarget.removeEventListener('click', saveMovieToWatched);
+    event.currentTarget.addEventListener('click', removeMovieFromWatched);
+    addToWatchedBtn.textContent = 'Remove from watched';
+  }
+
+})
+}
