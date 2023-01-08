@@ -1,5 +1,5 @@
 const btnOpenModalWindowTeam = document.querySelector('.open-mdl-win');
-const backdropIsHidden = document.querySelector('.backdrop');
+const backdropIsHidden = document.querySelector('.backdrop-team');
 const modalWindowTeam = document.querySelector('.mdl-win-team')
 const btnCloseModalWindowTeam = document.querySelector('.close-btn-mdl');
 
