@@ -21,8 +21,17 @@
 
     <!-- Styles -->
     <link rel="stylesheet" href="./sass/index.scss" />
+
+
+    <link rel="stylesheet" type="text/css" href="//cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.css" />
+    <link rel="stylesheet" type="text/css" href="//cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick-theme.css" />
+
   </head>
   <body>
+
+    <!-- Preloader  -->
+    <include src="./partials/preloader.html"></include>
+
     <!-- Header -->
     <include src="./partials/header-home-page.html"></include>
 
@@ -34,11 +43,19 @@
     <!-- Footer -->
     <include src="./partials/footer-all-page.html"></include>
 
-    <!-- Modal window for movies  -->
+    <!-- Modal window  -->
+    <include src="./partials/modal-win-our-team.html"></include>
     <include src="./partials/modal-film.html"></include>
+    
+
+    <!-- Scripts -->
+    <script type="text/javascript" src="//code.jquery.com/jquery-1.11.0.min.js"></script>
+    <script type="text/javascript" src="//cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.min.js"></script>
+
 
     <!-- Preloader  -->
     <include src="./partials/preloader.html"></include>
+    
     <!-- Scripts -->
     <script type="module" src="./index.js"></script>
   </body>
