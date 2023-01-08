@@ -72,7 +72,9 @@ function createCardMarkup(data, genres_names) {
       let genres_str = genres.join(', ');
       return `<li class="card">
   <a href="" class="card-link link" data-id="${id}">
+   <div class="card-box">
     <img class="card-img" src="${basicImgURL}${poster_path}" alt="${title}">
+    </div>
     <h3 class="card-name">${title}</h3>
     <div class="card-item">
       <p class="card-genres">${genres_str}</p>

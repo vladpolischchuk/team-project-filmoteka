@@ -13,15 +13,21 @@
     max-width: 280px;
 }
 
+ .card-box {
+     width: 280px;
+     height: 402px;
+     overflow: hidden;
+ }
+
 .card-img {
     border-radius: 5px;
     width: 100%;
-    height: 93%;
+    height: 100%;
     object-fit: cover;
 }
 
 .card-name {
-    margin-top: 8px;
+    margin-top: 10px;
 
     font-style: normal;
     font-weight: 500;
@@ -98,6 +104,15 @@
         max-width: 336px;
     }
 
+    .card-box {
+        width: 336px;
+        height: 455px;
+    }
+
+    .card-name {
+        margin-top: 8px;
+    }
+
     .card-item {
         display: flex;
         gap: 8px;
@@ -112,7 +127,12 @@
 
     .card {
         max-width: 394px;
-        margin-bottom: 32px;
+        margin-bottom: 16px;
+    }
+
+    .card-box {
+        width: 395px;
+        height: 574px;
     }
 
     .card-name {
