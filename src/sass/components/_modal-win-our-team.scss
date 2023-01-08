@@ -1,3 +1,8 @@
+.backdrop.is-hidden .mdl-win-team {
+    transform: translate(-50%, -50%) scale(1.2);
+    opacity: 0;
+}
+
 .mdl-win-team {
     position: fixed;
     top: 50%;
@@ -10,8 +15,12 @@
     background-color: rgb(255, 255, 255);
     border-radius: 5px;
     box-shadow: 2px 4px 3px rgb(0 0 0 / 12%), 2px 4px 5px rgb(0 0 0 / 14%), 2px 4px 5px rgb(0 0 0 / 20%);
+    opacity: 1;
 
     transform: translate(-50%,-50%);
+    transition: transform 250ms cubic-bezier(0.4, 0, 0.2, 1),
+                opacity 250ms cubic-bezier(0.4, 0, 0.2, 1);
+    transform-origin: center;
 }
 
 .close-btn-mdl {
@@ -61,13 +70,30 @@
 
 .wrapper-item{
     display: flex;
-    justify-content: center;
+    margin: auto;
+    
+    width: 150px;
+    height: 187px;
+}
+
+.wrapper-item__photo {
+    display: flex;
+
+    width: 80px;
+    height: 100px;
+}
+.photo-team {
+   object-fit: cover;
 }
 
 .title-name,
 .description {
     margin-top: 8px;
     text-align: center;
+}
+
+.title-name--size {
+    font-size: 9px;
 }
 
 .description {
@@ -85,7 +111,6 @@
     margin-left: 20px;
 }
 
-.social__icon,
 .social__link {
     display: inline-block;
     width: 44px;
@@ -93,7 +118,7 @@
 }
 
 .social__link {
-    background-color: rgba(227, 227, 227, 0.74);
+    background-color: bl;
     border-radius: 50%;
 
     color: black;
@@ -110,4 +135,29 @@
 
 .social__icon {
     fill: currentColor;
+}
+
+.slick-slider .slick-prev,
+.slick-slider .slick-next {
+    top: 35%;
+}
+
+.slick-slider .slick-prev:before,
+.slick-slider .slick-next:before {
+    color: black;
+}
+
+.slick-slider .slick-prev {
+    left: 15%;
+    z-index: 1;
+}
+
+.slick-slider .slick-next {
+    right: 15%;
+}
+
+.slider-nav .slick-list {
+   
+    width: 300px;
+    margin: auto;
 }
