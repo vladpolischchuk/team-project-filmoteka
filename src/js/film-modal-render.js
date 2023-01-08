@@ -42,19 +42,72 @@ function openFilmModalHandler(e) {
       console.log(filmModalId) 
   
       fetchMovieInfoAPI(filmModalId).then(data => {
-        refs.filmModalList.innerHTML = createModalMarkupMovie(data);
         refs.filmModalList.classList.remove('is-hidden');
-        refs.filmModalList.addEventListener('click', onToWatchedBtnClick(data));
+        refs.filmModalList.innerHTML = createModalMarkupMovie(data);
         const buttonCloseModal = document.querySelector('.film-modal-close-button');
         buttonCloseModal.addEventListener('click', closeModal);
         refs.filmModalList.addEventListener('click', closeModalBackdrop);
-        refs.filmModalList.addEventListener('click', openTrailerModal(data));
-
+        
         scrollController.disabledScroll();
+        
+        const addToWatchedBtn = document.querySelector('.add-to-watched-btn');
+let watchedMovies = JSON.parse(localStorage.getItem('Watched movies')) || [];
+const isWatched = watchedMovies.includes(data.id);
+if (isWatched) {
+  addToWatchedBtn.textContent = 'Remove from watched';
+} else {
+  addToWatchedBtn.textContent = 'Add to watched';
+}
+addToWatchedBtn.addEventListener('click', onToWatchedBtnClick);
+
+function onToWatchedBtnClick(event) {
+  let watchedMovies = JSON.parse(localStorage.getItem('Watched movies')) || [];
+  const isWatched = watchedMovies.includes(data.id);
+  if (!isWatched) {
+    watchedMovies.push(data.id);
+    event.target.textContent = 'Remove from watched';
+
+  } else {
+    const movieIndex = watchedMovies.indexOf(data.id);
+    watchedMovies.splice(movieIndex, 1);
+    event.target.textContent = 'Add to watched';
+
+  }
+  localStorage.setItem('Watched movies', JSON.stringify(watchedMovies));
+        }
+        
+        const addToQueueBtn = document.querySelector('.add-to-queue-btn');
+let queueMovies = JSON.parse(localStorage.getItem('Queue movies')) || [];
+const isQueue = queueMovies.includes(data.id);
+if (isQueue) {
+  addToQueueBtn.textContent = 'Remove from queue';
+} else {
+  addToQueueBtn.textContent = 'Add to queue';
+}
+addToQueueBtn.addEventListener('click', onToQueueBtnClick);
+
+function onToQueueBtnClick(event) {
+  let queueMovies = JSON.parse(localStorage.getItem('Queue movies')) || [];
+  const isQueue = queueMovies.includes(data.id);
+  if (!isQueue) {
+    queueMovies.push(data.id);
+    event.target.textContent = 'Remove from queue';
+
+  } else {
+    const movieIndex = queueMovies.indexOf(data.id);
+    queueMovies.splice(movieIndex, 1);
+    event.target.textContent = 'Add to queue';
+
+  }
+  localStorage.setItem('Queue movies', JSON.stringify(queueMovies));
+}
+
 
       })
+    
     }
 }
+
 
 function createModalMarkupMovie(data) {
     // console.log(data);
@@ -89,8 +142,7 @@ function createModalMarkupMovie(data) {
             src="${basicImgURL}${poster_path}" alt="film"
           />
           <button type="button" class="film-modal-btn film-modal-btn-trailer js-film-trailer"  data-id="${id}">watch trailer</button>
-
-        </div>
+          </div>
         <div class="film-modal-info-wrap">
         <h2 class="film-modal-title">${title}</h2>
         <ul class="film-modal-info-list">
@@ -119,7 +171,7 @@ function createModalMarkupMovie(data) {
       <p class="film-modal-description">${overview}
       </p>
       <div class="film-modal-btn-wrap">
-        <button class="film-modal-btn film-modal-btn-watched add-to-watched-btn data-id="${id}" type="button">add to Watched</button>
+        <button class="film-modal-btn film-modal-btn-watched add-to-watched-btn" data-id="${id}" type="button">add to Watched</button>
         <button class="film-modal-btn add-to-queue-btn" type="button" data-id="${id}">add to queue</button>
       </div>
       </div>`;
@@ -150,91 +202,3 @@ function createModalMarkupMovie(data) {
 };
 
 window.addEventListener('keydown', closeModalEscape);
-
-
-function onToWatchedBtnClick(data) {
-      // console.log(data)
-        const addToWatchedBtn = document.querySelector('.add-to-watched-btn');
-        const watchedArray = [];
-        const savedDataArray = localStorage.getItem('Watched movies');
-        const parsedDataWatched = JSON.parse(savedDataArray);
-addToWatchedBtn.addEventListener('click', () =>{
-  const {
-    id,
-    title,
-    overview,
-    poster_path,
-    release_date,
-    genres,
-    original_title,
-    popularity,
-    vote_average,
-    vote_count,
-  } = data;
-  // console.log(id);
-
-  if (parsedDataWatched) {
-    for (const array of parsedDataWatched){ 
-      watchedArray.push(array);
-    }
-  } 
-  if (watchedArray.includes(id)) {
-    addToWatchedBtn.textContent = 'Remove from watched';
-    addToWatchedBtn.addEventListener('click', removeMovieFromWatched)
-  } else {
-    addToWatchedBtn.textContent = 'Add to watched';
-    addToWatchedBtn.addEventListener('click', saveMovieToWatched)
-  }
-  
-  function removeMovieFromWatched(event) {
-    for (let i = 0; i < watchedArray.length; i++) {
-      if (watchedArray[i] === id) {
-        watchedArray.splice(i, 1);
-      }
-    }
-    localStorage.setItem('Watched movies', JSON.stringify(watchedArray));
-    
-    event.currentTarget.removeEventListener('click', removeMovieFromWatched);
-    event.currentTarget.addEventListener('click', saveMovieToWatched);
-    addToWatchedBtn.textContent = 'Add to watched';
-  }
-
-  function saveMovieToWatched(event) {
-    for (const movieId of watchedArray) {
-      if (movieId === id) {
-        return
-      }
-    }
-    watchedArray.push(id);
-    localStorage.setItem('Watched movies', JSON.stringify(watchedArray));
-
-    event.currentTarget.removeEventListener('click', saveMovieToWatched);
-    event.currentTarget.addEventListener('click', removeMovieFromWatched);
-    addToWatchedBtn.textContent = 'Remove from watched';
-  }
-
-})
-}
-
-function openTrailerModal(data) {
-  console.log(data)
-  const openFilmTrailer = document.querySelector('.js-film-trailer');
-        openFilmTrailer.addEventListener('click', () => {
-          const {
-            id,
-            title,
-            overview,
-            poster_path,
-            release_date,
-            genres,
-            original_title,
-            popularity,
-            vote_average,
-            vote_count,
-            movie_player
-          } = data;
-          console.log(id);
-      
-        });
-
-}
