@@ -6,6 +6,7 @@
 @import './base/preloader';
 @import './base/container';
 @import './base/section';
+@import './base/animation-canvas';
 
 // layout
 @import './layout/header-home-page';
@@ -18,4 +19,6 @@
 @import './components/backdrop';
 @import './components/modal-film';
 @import './components/pagination';
+
 @import './components/modal-win-our-team';
+

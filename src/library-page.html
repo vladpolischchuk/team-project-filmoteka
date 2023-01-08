@@ -23,6 +23,9 @@
     <link rel="stylesheet" href="./sass/index.scss" />
   </head>
   <body>
+
+    <canvas></canvas>
+
     <!-- Header -->
     <include src="./partials/header-library-page.html"></include>
 
@@ -30,9 +33,19 @@
     <main>
       <include src="./partials/card-section-library.html"></include>
     </main>
+    <!-- Preloader  -->
+    <include src="./partials/preloader.html"></include>
 
     <!-- Footers -->
     <include src="./partials/footer-all-page.html"></include>
+
+    <script src="https://unpkg.com/webgl-fluid@0.2"></script>
+    <script>
+      window['webgl-fluid'](document.querySelector('canvas'), {
+        TRANSPARENT: true,
+      });
+    </script>
+
     <!-- Scripts -->
     <script type="module" src="./library.js"></script>
   </body>

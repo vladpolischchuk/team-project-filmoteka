@@ -1,16 +1,17 @@
 .card-list {
-    display: flex;
-    flex-wrap: wrap;
-    margin-bottom: 40px;
+  display: flex;
+  flex-wrap: wrap;
+  margin-bottom: 40px;
 
-    justify-content: center;
-    align-items: stretch;
-    gap: 20px;
+  justify-content: center;
+  align-items: stretch;
+  gap: 20px;
 }
 
 .card {
     display: flex;
     max-width: 280px;
+    z-index: 10;
 
     transition: transform 250ms cubic-bezier(0.4, 0, 0.2, 1);
 
@@ -28,6 +29,9 @@
 
 .card-img {
     border-radius: 5px;
+  
+    margin-top: 8px;
+    border-radius: 5px;
     width: 100%;
     height: 100%;
     object-fit: cover;
@@ -36,76 +40,79 @@
 .card-name {
     margin-top: 10px;
 
-    font-style: normal;
-    font-weight: 500;
-    font-size: 12px;
-    line-height: 1.33;
+  font-style: normal;
+  font-weight: 500;
+  font-size: 12px;
+  line-height: 1.33;
 
-    text-transform: uppercase;
-    color: var(--black-text-color);
+  text-transform: uppercase;
+  color: var(--black-text-color);
 }
 
 .card-item {
-    display: flex;
-    gap: 7px;
+  display: flex;
+  gap: 7px;
 }
 
 .card-genres {
-    font-style: normal;
-    font-weight: 500;
-    font-size: 12px;
+  font-style: normal;
+  font-weight: 500;
+  font-size: 12px;
 
-    line-height: 1.33;
-    color: var(--accent-text-color);
-    text-transform: none;
+  line-height: 1.33;
+  color: var(--accent-text-color);
+  text-transform: none;
 }
 
 .card-year {
-    font-style: normal;
-    font-weight: 500;
-    font-size: 12px;
+  font-style: normal;
+  font-weight: 500;
+  font-size: 12px;
 
-    line-height: 1.33;
-    color: var(--accent-text-color);
+  line-height: 1.33;
+  color: var(--accent-text-color);
 }
 
 .card-line {
-    margin-right: 7px;
+  margin-right: 7px;
 
-    font-style: normal;
-    font-weight: 500;
-    font-size: 12px;
+  font-style: normal;
+  font-weight: 500;
+  font-size: 12px;
 
-    line-height: 1.33;
-    color: var(--accent-text-color);
+  line-height: 1.33;
+  color: var(--accent-text-color);
 }
 
 .card-rating {
-    display: flex;
-    align-items: center;
-    justify-content: center;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 
-    width: 36px;
-    height: 16px;
+  width: 36px;
+  height: 16px;
 
-    color: var(--primary-text-color);
-    background-color: #FF6B01;
-    border-radius: 5px;
+  color: var(--primary-text-color);
+  background-color: #ff6b01;
+  border-radius: 5px;
 
-    font-weight: 500;
-    font-size: 12px;
-    line-height: 1.16;
+  font-weight: 500;
+  font-size: 12px;
+  line-height: 1.16;
 
-    text-transform: uppercase;
+  text-transform: uppercase;
 }
 
 @media screen and (min-width: 768px) {
+  .card-list {
+    justify-content: left;
+    gap: 32px;
+    margin-bottom: 60px;
+  }
 
-    .card-list {
-        justify-content: left;
-        gap: 32px;
-        margin-bottom: 60px;
-    }
+  .card {
+    max-width: 336px;
+  }
 
     .card {
         max-width: 336px;
@@ -124,50 +131,50 @@
         display: flex;
         gap: 8px;
     }
+
 }
 
 @media screen and (min-width: 1280px) {
+  .card-list {
+    gap: 16px;
+  }
 
-    .card-list {
-        gap: 16px;
-    }
+  .card {
+    max-width: 394px;
+  }
 
-    .card {
-        max-width: 394px;
-        margin-bottom: 16px;
-    }
+  .card-name {
+    font-size: 20px;
+    line-height: 1.2;
+    margin-top: 12px;
+  }
 
-    .card-box {
-        width: 395px;
-        height: 574px;
-    }
+  .card-item {
+    margin-bottom: 16px;
+  }
 
-    .card-name {
-        font-size: 20px;
-        line-height: 1.2;
-        margin-top: 12px;
-    }
+  .card-genres {
+    font-size: 20px;
+    line-height: 1.2;
+  }
 
-    .card-genres {
-        font-size: 20px;
-        line-height: 1.2;
-    }
+  .card-year {
+    font-size: 20px;
+    line-height: 1.2;
+  }
 
-    .card-year {
-        font-size: 20px;
-        line-height: 1.2;
-    }
+  .card-line {
+    font-size: 20px;
+    line-height: 1.2;
+    margin-right: 7px;
+  }
 
-    .card-line {
-        font-size: 20px;
-        line-height: 1.2;
-        margin-right: 7px;
-    }
 
-    .card-rating {
-        width: 40px;
-        height: 20px;
-        margin-top: 3px;
-    }
-
+  .card-rating {
+    width: 40px;
+    height: 20px;
+    margin-top: 3px;
+  }
 }
+
+  
