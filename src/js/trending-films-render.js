@@ -43,6 +43,7 @@ const refs = {
   filmModalList: document.querySelector('.backdrop'),
 };
 
+const noPosterImg ='https://freedesignfile.com/upload/2018/11/Characters-in-film-design-elements-background-vector-graphic-715.jpg'
 const basicImgURL = 'https://image.tmdb.org/t/p/w500';
 const pagination = new Pagination(refs.pagination, options);
 const page = pagination.getCurrentPage();
@@ -69,11 +70,19 @@ function createCardMarkup(data, genres_names) {
       if (genres.length >= 3) {
         genres = [genres[0], genres[1], 'Other'];
       }
+      function generatePosterImg(poster_path) {
+        if (poster_path === null) {
+          return noPosterImg;
+        }
+        return `${basicImgURL}${poster_path}`;
+      }
       let genres_str = genres.join(', ');
       return `<li class="card">
   <a href="" class="card-link link" data-id="${id}">
    <div class="card-box">
-    <img class="card-img" src="${basicImgURL}${poster_path}" alt="${title}">
+    <img class="card-img" src="${generatePosterImg(
+      poster_path
+    )}" alt="${title}">
     </div>
     <h3 class="card-name">${title}</h3>
     <div class="card-item">
