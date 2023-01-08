@@ -48,6 +48,7 @@ function openFilmModalHandler(e) {
         const buttonCloseModal = document.querySelector('.film-modal-close-button');
         buttonCloseModal.addEventListener('click', closeModal);
         refs.filmModalList.addEventListener('click', closeModalBackdrop);
+        refs.filmModalList.addEventListener('click', openTrailerModal(data));
 
         scrollController.disabledScroll();
 
@@ -213,4 +214,27 @@ addToWatchedBtn.addEventListener('click', () =>{
   }
 
 })
+}
+
+function openTrailerModal(data) {
+  console.log(data)
+  const openFilmTrailer = document.querySelector('.js-film-trailer');
+        openFilmTrailer.addEventListener('click', () => {
+          const {
+            id,
+            title,
+            overview,
+            poster_path,
+            release_date,
+            genres,
+            original_title,
+            popularity,
+            vote_average,
+            vote_count,
+            movie_player
+          } = data;
+          console.log(id);
+      
+        });
+
 }
