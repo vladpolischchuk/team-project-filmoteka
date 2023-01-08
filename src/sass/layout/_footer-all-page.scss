@@ -1,8 +1,9 @@
 .section-footer {
+  position: relative;
   padding-top: 30px;
   padding-bottom: 30px;
 
-  background-color: var(--footer-background);
+  background-color: #F7F7F7;
 }
 @media screen and (min-width: 768px) {
   .section-footer {
