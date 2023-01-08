@@ -1,0 +1,21 @@
+.section {
+    padding-top: 20px;
+    padding-bottom: 40px;
+}
+
+.header-section {
+    padding-top: 40px;
+    padding-bottom: 92px;
+}
+
+
+@media screen and (min-width: 768px) {
+    .section {
+        padding-top: 60px;
+        padding-bottom: 60px;
+    }
+
+    .header-section {
+        padding-bottom: 81px;
+        }
+}

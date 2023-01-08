@@ -1,11 +1,11 @@
-.footer {
+.section-footer {
   padding-top: 30px;
   padding-bottom: 30px;
 
   background-color: var(--footer-background);
 }
 @media screen and (min-width: 768px) {
-  .footer {
+  .section-footer {
     display: flex;
     justify-content: center;
   }

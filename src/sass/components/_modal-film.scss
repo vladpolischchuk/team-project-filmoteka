@@ -6,6 +6,7 @@
 
     width: 280px;
     padding: 15px 20px 40px 20px;
+    border-radius: 4px;
 
     background-color: var(--primary-background);
     transform: translate(-50%, -50%) scale(1);
@@ -26,8 +27,8 @@
 
     @media screen and (min-width: 1024px) {
         width: 814px;
-        height: 558px;
-        padding: 40px 16px;
+        height: 600px;
+        padding: 40px 16px 40px 16px;
     }
 }
 
@@ -216,7 +217,27 @@
         border: 1px solid var(--accent-text-color);
     }
 }
-    
+
+.film-modal-btn-trailer{
+margin-top: 5px;
+width: inherit;
+height: 30px;
+
+color: var(--primary-background);
+background-color: var(--accent-text-color);
+border: 1px solid var(--accent-text-color);
+
+@media screen and (min-width: 1024px) {
+    height: 40px;}
+
+    &:hover,
+    &:focus {
+        background-color: var(--primary-background);
+        color: var(--accent-text-color);
+       
+    }
+}
+
 .film-modal-btn-watched{
     margin-right: 20px;
 }
