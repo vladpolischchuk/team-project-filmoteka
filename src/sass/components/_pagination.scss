@@ -38,6 +38,14 @@
   padding-top: 7px;
 }
 
+#pagination .tui-prev {
+  margin-right: 0;
+}
+
+#pagination .tui-next {
+  margin-left: 0;
+}
+
 #pagination .tui-last,
 #pagination .tui-next {
   padding-left: 3px;
@@ -71,4 +79,20 @@
 #pagination > .tui-is-disabled:hover {
   background-color: transparent;
   color: transparent;
+}
+
+#pagination .tui-first,
+#pagination .tui-last,
+#pagination .tui-next-is-ellip,
+#pagination .tui-prev-is-ellip {
+  display: none;
+}
+
+@media screen and (min-width: 768px) {
+  #pagination .tui-first,
+  #pagination .tui-last,
+  #pagination .tui-next-is-ellip,
+  #pagination .tui-prev-is-ellip {
+    display: inline-block;
+  }
 }
