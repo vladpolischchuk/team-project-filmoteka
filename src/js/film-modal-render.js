@@ -16,95 +16,101 @@ import {
 const refs = {
   filmModalList: document.querySelector('.backdrop'),
   openModalFilm: document.querySelector('.card-list'),
-};
-console.log(refs);
+
+}
+console.log(refs)
 refs.openModalFilm.addEventListener('click', openFilmModalHandler);
 
 const scrollController = {
-  disabledScroll() {
+    disabledScroll(){
     document.body.style.cssText = `
     overflow: hidden;
     `;
-  },
-  enabledScroll() {
-    document.body.style.cssText = '';
-  },
-};
+    },
+    enabledScroll(){
+        document.body.style.cssText = '';
+    }
+
+}
 
 function openFilmModalHandler(e) {
   if (e.target !== e.currentTarget) {
-    e.preventDefault();
-    const filmModalId = e.target.closest('.card-link').getAttribute('data-id');
-    console.log(filmModalId);
+  e.preventDefault();
+      const filmModalId = e.target
+      .closest('.card-link')
+      .getAttribute('data-id');
+      console.log(filmModalId) 
+  
+      fetchMovieInfoAPI(filmModalId).then(data => {
+        refs.filmModalList.classList.remove('is-hidden');
+        refs.filmModalList.innerHTML = createModalMarkupMovie(data);
+        const buttonCloseModal = document.querySelector('.film-modal-close-button');
+        buttonCloseModal.addEventListener('click', closeModal);
+        refs.filmModalList.addEventListener('click', closeModalBackdrop);
+        
+        scrollController.disabledScroll();
+        
+        const addToWatchedBtn = document.querySelector('.add-to-watched-btn');
+let watchedMovies = JSON.parse(localStorage.getItem('Watched movies')) || [];
+const isWatched = watchedMovies.includes(data.id);
+if (isWatched) {
+  addToWatchedBtn.textContent = 'Remove from watched';
+} else {
+  addToWatchedBtn.textContent = 'Add to watched';
+}
+addToWatchedBtn.addEventListener('click', onToWatchedBtnClick);
 
-    fetchMovieInfoAPI(filmModalId).then(data => {
-       refs.filmModalList.classList.remove('is-hidden');
-      refs.filmModalList.innerHTML = createModalMarkupMovie(data);
-      console.log(data);
-      const buttonCloseModal = document.querySelector(
-        '.film-modal-close-button'
-      );
-      console.log(buttonCloseModal);
-      buttonCloseModal.addEventListener('click', closeModal);
-      refs.filmModalList.addEventListener('click', closeModalBackdrop);
+function onToWatchedBtnClick(event) {
+  let watchedMovies = JSON.parse(localStorage.getItem('Watched movies')) || [];
+  const isWatched = watchedMovies.includes(data.id);
+  if (!isWatched) {
+    watchedMovies.push(data.id);
+    event.target.textContent = 'Remove from watched';
 
-      scrollController.disabledScroll();
+  } else {
+    const movieIndex = watchedMovies.indexOf(data.id);
+    watchedMovies.splice(movieIndex, 1);
+    event.target.textContent = 'Add to watched';
 
-      const addToWatchedBtn = document.querySelector('.add-to-watched-btn');
-      let watchedMovies =
-        JSON.parse(localStorage.getItem('Watched movies')) || [];
-      const isWatched = watchedMovies.includes(data.id);
-      if (isWatched) {
-        addToWatchedBtn.textContent = 'Remove from watched';
-      } else {
-        addToWatchedBtn.textContent = 'Add to watched';
-      }
-      addToWatchedBtn.addEventListener('click', onToWatchedBtnClick);
-
-      function onToWatchedBtnClick(event) {
-        let watchedMovies =
-          JSON.parse(localStorage.getItem('Watched movies')) || [];
-        const isWatched = watchedMovies.includes(data.id);
-        if (!isWatched) {
-          watchedMovies.push(data.id);
-          event.target.textContent = 'Remove from watched';
-        } else {
-          const movieIndex = watchedMovies.indexOf(data.id);
-          watchedMovies.splice(movieIndex, 1);
-          event.target.textContent = 'Add to watched';
-        }
-        localStorage.setItem('Watched movies', JSON.stringify(watchedMovies));
-      }
-
-      const addToQueueBtn = document.querySelector('.add-to-queue-btn');
-      let queueMovies = JSON.parse(localStorage.getItem('Queue movies')) || [];
-      const isQueue = queueMovies.includes(data.id);
-      if (isQueue) {
-        addToQueueBtn.textContent = 'Remove from queue';
-      } else {
-        addToQueueBtn.textContent = 'Add to queue';
-      }
-      addToQueueBtn.addEventListener('click', onToQueueBtnClick);
-
-      function onToQueueBtnClick(event) {
-        let queueMovies =
-          JSON.parse(localStorage.getItem('Queue movies')) || [];
-        const isQueue = queueMovies.includes(data.id);
-        if (!isQueue) {
-          queueMovies.push(data.id);
-          event.target.textContent = 'Remove from queue';
-        } else {
-          const movieIndex = queueMovies.indexOf(data.id);
-          queueMovies.splice(movieIndex, 1);
-          event.target.textContent = 'Add to queue';
-        }
-        localStorage.setItem('Queue movies', JSON.stringify(queueMovies));
-      }
-    });
   }
+  localStorage.setItem('Watched movies', JSON.stringify(watchedMovies));
+        }
+        
+        const addToQueueBtn = document.querySelector('.add-to-queue-btn');
+let queueMovies = JSON.parse(localStorage.getItem('Queue movies')) || [];
+const isQueue = queueMovies.includes(data.id);
+if (isQueue) {
+  addToQueueBtn.textContent = 'Remove from queue';
+} else {
+  addToQueueBtn.textContent = 'Add to queue';
+}
+addToQueueBtn.addEventListener('click', onToQueueBtnClick);
+
+function onToQueueBtnClick(event) {
+  let queueMovies = JSON.parse(localStorage.getItem('Queue movies')) || [];
+  const isQueue = queueMovies.includes(data.id);
+  if (!isQueue) {
+    queueMovies.push(data.id);
+    event.target.textContent = 'Remove from queue';
+
+  } else {
+    const movieIndex = queueMovies.indexOf(data.id);
+    queueMovies.splice(movieIndex, 1);
+    event.target.textContent = 'Add to queue';
+
+  }
+  localStorage.setItem('Queue movies', JSON.stringify(queueMovies));
 }
 
+
+      })
+    
+    }
+}
+
+
 function createModalMarkupMovie(data) {
+<<<<<<< HEAD
   // console.log(data);
   const {
     id,
@@ -125,6 +131,27 @@ function createModalMarkupMovie(data) {
   const genresMovie = data.genres.map(element => element.name).join(', ');
 
   return `<div class="film-modal">
+=======
+    // console.log(data);
+    const {
+      id,
+      title,
+      overview,
+      poster_path,
+      release_date,
+      genres,
+      original_title,
+      popularity,
+      vote_average,
+      vote_count,
+    } = data;
+  
+    const basicImgURL = 'https://image.tmdb.org/t/p/w500';
+  
+    const genresMovie = data.genres.map(element => element.name).join(', ');
+  
+    return `<div class="film-modal">
+>>>>>>> parent of 6d20b56 (Merge pull request #55 from E-gap/bag-fix-open-modal-in-library)
         <button type="button" class="film-modal-close-button" data-film-modal-close> 
           <svg class='film-modal-close-icon' width='30' height='30' viewBox='0 0 30 30'>
             <path class='film-modal-close-icon' d='M8 8L22 22' stroke='black' stroke-width='2'></path>
@@ -171,26 +198,29 @@ function createModalMarkupMovie(data) {
         <button class="film-modal-btn add-to-queue-btn" type="button" data-id="${id}">add to queue</button>
       </div>
       </div>`;
-}
-
-function closeModal() {
-  refs.filmModalList.classList.add('is-hidden');
-  //   openModalFilm.removeEventListener('click', closeModal);
-  refs.filmModalList.removeEventListener('click', closeModalBackdrop);
-
-  scrollController.enabledScroll();
-}
-
-function closeModalBackdrop(e) {
-  console.log(e.target.classList);
-  if (e.target.classList.contains('backdrop')) {
-    closeModal();
   }
-}
+  
+  function closeModal() {
+      refs.filmModalList.classList.add('is-hidden');
+    //   openModalFilm.removeEventListener('click', closeModal);
+      refs.filmModalList.removeEventListener('click', closeModalBackdrop);
 
-const closeModalEscape = event => {
+      scrollController.enabledScroll();
+
+    };
+
+  function closeModalBackdrop(e) {
+    console.log(e.target.classList)
+      if (e.target.classList.contains('backdrop')) {
+        closeModal();
+
+      } 
+    };
+
+    const closeModalEscape = event => {
   if (event.code === 'Escape') {
     closeModal();
+
   }
 };
 
