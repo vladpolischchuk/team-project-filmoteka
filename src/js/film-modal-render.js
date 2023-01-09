@@ -117,6 +117,7 @@ function createModalMarkupMovie(data) {
     popularity,
     vote_average,
     vote_count,
+    homepage
   } = data;
 
   const basicImgURL = 'https://image.tmdb.org/t/p/w500';
@@ -136,7 +137,7 @@ function createModalMarkupMovie(data) {
             class='film-modal-poster-img'
             src="${basicImgURL}${poster_path}" alt="film"
           />
-          <button type="button" class="film-modal-btn film-modal-btn-trailer js-film-trailer"  data-id="${id}">watch trailer</button>
+          <button type="button" class="film-modal-btn  js-film-trailer"  data-id="${id}"><a class='link link-watch' href="${homepage}">official page</a></button>
           </div>
         <div class="film-modal-info-wrap">
         <h2 class="film-modal-title">${title}</h2>

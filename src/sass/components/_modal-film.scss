@@ -183,6 +183,7 @@
   display: inline-flex;
   justify-content: center;
   align-items: center;
+  margin-top: 10px;
   padding: 0px 10px;
 
   width: 110px;
@@ -198,6 +199,7 @@
   background-color: initial;
   border: 1px solid var(--black-text-color);
   border-radius: 5px;
+  color: var(--black-text-color);
 
   /* transition-property: background-color, color, border;
     transition: 250ms cubic-bezier(0.4, 0, 0.2, 1); */
@@ -216,6 +218,9 @@
     color: var(--primary-background);
     border: 1px solid var(--accent-text-color);
   }
+}
+.link-watch {
+  color: inherit;
 }
 
 .film-modal-btn-trailer {
