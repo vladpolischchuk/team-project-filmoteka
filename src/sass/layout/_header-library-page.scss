@@ -91,19 +91,25 @@
   margin-right: 20px;
 }
 .button {
-  padding: 14px 36px;
-
+  display: flex;
+  padding-top: 14px;
+  padding-bottom: 14px;
+  justify-content: center;
+  width: 152px;
   background-color: transparent;
   border: 1px solid var(--primary-background);
   border-radius: 5px;
   color: var(--primary-text-color);
+  text-transform: uppercase;
   cursor: pointer;
 
   transition: background-color 250ms cubic-bezier(0.4, 0, 0.2, 1), border 250ms cubic-bezier(0.4, 0, 0.2, 1), filter 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
 @media screen and (min-width: 768px) {
   .button {
-    padding: 13px 46px;
+    padding-top: 13px;
+    padding-bottom: 13px;
+    width: 144px;
   }
 }
 .button:hover,
