@@ -143,7 +143,7 @@ function createModalMarkupMovie(data) {
             class='film-modal-poster-img'
             src="${basicImgURL}${poster_path}" alt="film"
           />
-          <a class='link link-watch film-modal-btn  js-film-trailer' href="${homepage}" data-id="${id}">official page</a>
+          <a class='link link-watch film-modal-btn film-modal-btn-trailer js-film-trailer' href="${homepage}" data-id="${id}">official page</a>
           </div>
         <div class="film-modal-info-wrap">
         <h2 class="film-modal-title">${title}</h2>
