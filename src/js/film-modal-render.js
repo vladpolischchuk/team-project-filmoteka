@@ -110,7 +110,7 @@ function onToQueueBtnClick(event) {
 
 
 function createModalMarkupMovie(data) {
-<<<<<<< HEAD
+
   // console.log(data);
   const {
     id,
@@ -131,27 +131,6 @@ function createModalMarkupMovie(data) {
   const genresMovie = data.genres.map(element => element.name).join(', ');
 
   return `<div class="film-modal">
-=======
-    // console.log(data);
-    const {
-      id,
-      title,
-      overview,
-      poster_path,
-      release_date,
-      genres,
-      original_title,
-      popularity,
-      vote_average,
-      vote_count,
-    } = data;
-  
-    const basicImgURL = 'https://image.tmdb.org/t/p/w500';
-  
-    const genresMovie = data.genres.map(element => element.name).join(', ');
-  
-    return `<div class="film-modal">
->>>>>>> parent of 6d20b56 (Merge pull request #55 from E-gap/bag-fix-open-modal-in-library)
         <button type="button" class="film-modal-close-button" data-film-modal-close> 
           <svg class='film-modal-close-icon' width='30' height='30' viewBox='0 0 30 30'>
             <path class='film-modal-close-icon' d='M8 8L22 22' stroke='black' stroke-width='2'></path>
@@ -164,7 +143,7 @@ function createModalMarkupMovie(data) {
             class='film-modal-poster-img'
             src="${basicImgURL}${poster_path}" alt="film"
           />
-          <button type="button" class="film-modal-btn  js-film-trailer"  data-id="${id}"><a class='link link-watch' href="${homepage}">official page</a></button>
+          <a class='link link-watch film-modal-btn  js-film-trailer' href="${homepage}" data-id="${id}">official page</a>
           </div>
         <div class="film-modal-info-wrap">
         <h2 class="film-modal-title">${title}</h2>
