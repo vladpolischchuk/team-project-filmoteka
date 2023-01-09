@@ -24,7 +24,7 @@
       url(../img/header_home/home-background0@2x.jpg);
   }
 }
-@media screen and (min-width: 320px) {
+@media screen and (min-width: 768px) {
   .page-header {
     background-image: linear-gradient(
         to right,
@@ -34,7 +34,7 @@
       url(../img/header_home/home-background2.jpg);
   }
 }
-@media screen and (min-width: 320px) and (min-device-pixel-ratio: 2),
+@media screen and (min-width: 768px) and (min-device-pixel-ratio: 2),
   screen and (min-width: 768px) and (min-resolution: 192dpi),
   screen and (min-width: 768px) and (min-resolution: 2dppx) {
   .page-header {
@@ -46,17 +46,17 @@
       url(../img/header_home/home-background2@2x.jpg);
   }
 }
-@media screen and (min-width: 768px) {
+@media screen and (min-width: 1200px) {
   .page-header {
     background-image: linear-gradient(
         to right,
         var(--hero-background),
         var(--hero-background)
       ),
-      url(../img/header_home/home-background1.jpg);
+      url(../img/header_home/home-background1@2x.jpg);
   }
 }
-@media screen and (min-width: 768px) and (min-device-pixel-ratio: 2),
+@media screen and (min-width: 1200px) and (min-device-pixel-ratio: 2),
   screen and (min-width: 1200px) and (min-resolution: 192dpi),
   screen and (min-width: 1200px) and (min-resolution: 2dppx) {
   .page-header {
