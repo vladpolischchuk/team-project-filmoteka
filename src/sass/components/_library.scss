@@ -1,0 +1,17 @@
+.message {
+    display: flex;
+    flex-direction: column;    
+    align-items: center;
+}
+
+.message-text {
+    font-size: 48px;
+    margin-bottom: 60px;
+
+    text-align: center;
+}
+
+.message-image {
+    width: 512px;
+    height: 512px;
+}
